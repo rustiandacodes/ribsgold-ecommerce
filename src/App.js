@@ -1,24 +1,23 @@
 import './App.css'
+// import { data } from './data'
 import { products } from './service'
-import { useEffect, useState } from 'react'
-
 function App() {
-  const [product, setProduct] = useState([])
-
-  useEffect(() => {
-    setProduct(products)
-  }, [product])
-
   return (
     <div className="App">
-      {product.map((product, index) => {
+      {products.map((product, index) => {
+        console.log(product.image)
         return (
           <div key={index}>
             <p>{product.name}</p>
-            <img
-              src={require(`./asstets/products/${product.image[0]}`)}
-              alt=""
-            />
+            <div className="flex gap-3 justify-center">
+              {product.image.map((image) => (
+                <img
+                  className="w-1/4 rounded-xl shadow-lg"
+                  src={image}
+                  alt=""
+                />
+              ))}
+            </div>
           </div>
         )
       })}
