@@ -123,15 +123,13 @@ import flanelThumb6 from '../assets/sg-11134201-23020-o1mnzxftnhnv9b.jpeg'
 import flanelThumb7 from '../assets/sg-11134201-23020-6wntx42snhnv49.jpeg'
 import flanelThumb8 from '../assets/sg-11134201-23020-lz77v83snhnva8.jpeg'
 import flanelThumb9 from '../assets/sg-11134201-23020-o1yow04snhnvc4.jpeg'
-import ultimateThumb1 from '../assets/sg-11134201-23020-192g6f7snhnv18.jpeg'
-import ultimateThumb2 from '../assets/sg-11134201-23020-4t9gsi9snhnv22.jpeg'
-import ultimateThumb3 from '../assets/sg-11134201-23020-xg3ehcdtnhnv23.jpeg'
-import ultimateThumb4 from '../assets/sg-11134201-23020-md5cg2dtnhnvc9.jpeg'
-import ultimateThumb5 from '../assets/sg-11134201-23020-t4w9wsetnhnv46.jpeg'
-import ultimateThumb6 from '../assets/sg-11134201-23020-o1mnzxftnhnv9b.jpeg'
-import ultimateThumb7 from '../assets/sg-11134201-23020-6wntx42snhnv49.jpeg'
-import ultimateThumb8 from '../assets/sg-11134201-23020-lz77v83snhnva8.jpeg'
-import ultimateThumb9 from '../assets/sg-11134201-23020-o1yow04snhnvc4.jpeg'
+import daviribsThumb1 from '../assets/id-11134201-23030-rtgv8xxmr9nv9d.jpeg'
+import daviribsThumb2 from '../assets/id-11134207-23030-x2xuuo72r9nvba.jpeg'
+import musiclightThumb1 from '../assets/id-11134201-23030-26t58mvk5jova3.jpeg'
+import musiclightThumb2 from '../assets/id-11134207-23030-drekm77l5jov6f.jpeg'
+import orangebearThumb1 from '../assets/sg-11134201-23010-006k9v6gjqmvaa.jpeg'
+import orangebearThumb2 from '../assets/sg-11134201-23020-p7yc37e2penv80.jpeg'
+import orangebearThumb3 from '../assets/id-11134207-23020-9iyjomo2penvec.jpeg'
 
 export const products = [
   // accesssories product
@@ -494,37 +492,32 @@ export const products = [
     size: ['m', 'l', 'xl'],
     image: [flanelThumb7, flanelThumb8, flanelThumb9],
   },
+  // oversize
   {
-    name: 't-shirt ultimate series',
+    name: 'oversized daviribs',
     category: 't-shirt',
-    price: 129000,
+    price: 99000,
+    variant: [],
+    size: ['m', 'l', 'xl'],
+    image: [daviribsThumb1, daviribsThumb2],
+  },
+  {
+    name: 'oversized music light',
+    category: 't-shirt',
+    price: 99000,
+    variant: [],
+    size: ['m', 'l', 'xl'],
+    image: [musiclightThumb1, musiclightThumb2],
+  },
+  {
+    name: 'oversized orange bear',
+    category: 't-shirt',
+    price: 99000,
     variant: [
-      {
-        color: 'red black cream',
-        image_path: ultimateThumb1,
-      },
-      {
-        color: 'blue white',
-        image_path: ultimateThumb2,
-      },
-      {
-        color: 'square grey',
-        image_path: ultimateThumb3,
-      },
-      {
-        color: 'brown grey navy',
-        image_path: ultimateThumb4,
-      },
-      {
-        color: 'square line grey',
-        image_path: ultimateThumb5,
-      },
-      {
-        color: 'square grey navy',
-        image_path: ultimateThumb6,
-      },
+      { color: 'black', image_path: orangebearThumb1 },
+      { color: 'white', image_path: orangebearThumb2 },
     ],
     size: ['m', 'l', 'xl'],
-    image: [ultimateThumb7, ultimateThumb8, ultimateThumb9],
+    image: [orangebearThumb1, orangebearThumb2, orangebearThumb3],
   },
 ]

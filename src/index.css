@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-    body {
-        font-family: 'DM Sans', sans-serif;
-    }
+  body {
+    font-family: 'Merriweather Sans', sans-serif;
+  }
 }

@@ -4,6 +4,7 @@ import { products } from './service'
 function App() {
   return (
     <div className="App">
+      <div className="uppercase text-2xl font-extrabold">ribsgold</div>
       {products.map((product, index) => {
         console.log(product.image)
         return (
