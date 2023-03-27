@@ -7,7 +7,7 @@ import fest3 from '../assets/fest3.png'
 import { NavLink } from 'react-router-dom'
 const Hero = () => {
   return (
-    <div className="container mx-auto py-10 px-10">
+    <div className="container mx-auto py-10 px-10 lg:px-0">
       <div className="flex-row md:flex md:items-center md:justify-between">
         <div className="lg:w-[50%] mt-10 mb-20 lg:mb-0">
           <h1 className="heading-1 lg:leading-[50px] leading-[40px] font-extrabold">
