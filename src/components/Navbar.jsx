@@ -12,7 +12,7 @@ const Navbar = () => {
           <ul className="flex gap-10 text-sm font-semibold ">
             <li>
               <NavLink
-                className={'hover:border-b-2 border-black pb-1 uppercase'}
+                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
                 to={'/'}
               >
                 Home
@@ -20,18 +20,26 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                className={'hover:border-b-2 border-black pb-1 uppercase'}
-                to={'/shop'}
+                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
+                to={'/products'}
               >
-                Shop
+                products
               </NavLink>
             </li>
             <li>
               <NavLink
-                className={'hover:border-b-2 border-black pb-1 uppercase'}
+                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
                 to={'/about'}
               >
                 About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
+                to={'/contact'}
+              >
+                Contact
               </NavLink>
             </li>
           </ul>
