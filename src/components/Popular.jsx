@@ -72,10 +72,15 @@ const Popular = () => {
                 <div className="p-3">
                   <h3 className="capitalize font-bold">{item.name}</h3>
                   <div className="flex justify-between items-center">
-                    <p className="text-xs py-2 text-slate-700">
-                      IDR {item.price.toLocaleString()}
-                    </p>
-                    <ShoppingBag size={20} color="#334155" />
+                    <div className="py-2">
+                      <p className="text-sm text-slate-900">
+                        IDR {item.price.toLocaleString()}
+                      </p>
+                      <p className="text-xs line-through mt-1 text-slate-700">
+                        IDR {(item.price + 54000).toLocaleString()}
+                      </p>
+                    </div>
+                    <ShoppingBag size={24} color="#334155" />
                   </div>
                 </div>
               </div>

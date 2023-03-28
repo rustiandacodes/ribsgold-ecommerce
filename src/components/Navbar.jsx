@@ -7,9 +7,9 @@ const Navbar = () => {
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
       <div className="container mx-auto flex justify-between items-center py-5">
-        <span className="uppercase text-xl font-bold">ribsgold</span>
+        <span className="uppercase text-xl font-bold">rbsgld</span>
         <div className="hidden lg:block">
-          <ul className="flex gap-10 text-sm font-semibold ">
+          <ul className="flex gap-16 text-sm font-semibold ">
             <li>
               <NavLink
                 className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
