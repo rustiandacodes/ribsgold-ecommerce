@@ -6,8 +6,10 @@ import accessories from '../assets/212468a784a0228b8ff6fb3288f0006e.jpeg'
 const categories = () => {
   return (
     <div className="container mx-auto py-10 px-10 lg:px-0">
-      <h2 className="text-2xl font-bold text-center">Our Best Product</h2>
-      <hr className="mb-8 mt-3 mx-auto w-20 border-2 rounded-full border-yellow-400" />
+      <h2 className="text-2xl md:text-4xl font-bold text-center">
+        Our Best Product
+      </h2>
+      <hr className="mb-8 mt-3 mx-auto w-32 border-2 rounded-full border-yellow-400" />
       <div className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3  ">
         <div className="md:w-[40%] overflow-hidden group relative cursor-pointer">
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">

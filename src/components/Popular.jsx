@@ -57,8 +57,10 @@ const Popular = () => {
   }
   return (
     <div className="container mx-auto py-10 px-10 lg:px-0">
-      <h2 className="text-2xl font-bold text-center">Popular This Week</h2>
-      <hr className="mb-12 mt-3 mx-auto w-20 border-2 rounded-full border-yellow-400" />
+      <h2 className="text-2xl md:text-4xl font-bold text-center">
+        Popular This Week
+      </h2>
+      <hr className="mb-12 mt-3 mx-auto w-32 border-2 rounded-full border-yellow-400" />
       <Slider {...settings}>
         {popular.map((item, index) => {
           return (

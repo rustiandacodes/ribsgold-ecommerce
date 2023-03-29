@@ -1,7 +1,7 @@
 const Subscribe = () => {
   return (
     <div className="container mx-auto py-14 my-16 px-10">
-      <h2 className="text-4xl font-bold text-center">
+      <h2 className="text-2xl md:text-4xl font-bold text-center">
         Subscribe to our Newsletter
       </h2>
       <hr className="mb-14 mt-3 mx-auto w-32 border-2 rounded-full border-yellow-400" />
