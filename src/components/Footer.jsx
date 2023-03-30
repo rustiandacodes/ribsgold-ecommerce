@@ -1,8 +1,6 @@
 import goolePlayStore from '../assets/google-play-store.png'
 import appStore from '../assets/app-store.png'
 
-import { span } from 'react-router-dom'
-
 const Footer = () => {
   return (
     <footer className="bg-neutral-900 py-20 text-white">
