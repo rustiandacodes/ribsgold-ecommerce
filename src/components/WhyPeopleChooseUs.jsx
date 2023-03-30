@@ -4,7 +4,7 @@ import { CornerDownLeft } from 'react-feather'
 
 const WhyPeopleChooseUs = () => {
   return (
-    <div className="my-16 bg-neutral-800 text-white">
+    <div className="my-16 bg-neutral-800 py-6 text-white">
       <div className="container mx-auto py-16 px-10 lg:px-0">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           Why People Choose Us
@@ -27,7 +27,7 @@ const WhyPeopleChooseUs = () => {
               shop
             </p>
           </div>
-          <div className="md:w-1/4  flex flex-col items-center">
+          <div className="md:w-1/4 flex flex-col items-center">
             <Users color="#fbbf24" size={38} />
             <h3 className="text-lg font-bold my-3">Customer Service</h3>
             <p className="text-sm">

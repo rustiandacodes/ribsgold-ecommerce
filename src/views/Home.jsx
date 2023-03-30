@@ -6,7 +6,7 @@ import Subscribe from '../components/Subscribe'
 
 const Home = () => {
   return (
-    <div className="pt-14">
+    <div className="pt-12">
       <Hero />
       <Categories />
       <Popular />

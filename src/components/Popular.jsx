@@ -64,7 +64,7 @@ const Popular = () => {
       <Slider {...settings}>
         {popular.map((item, index) => {
           return (
-            <div key={index} className="w-1/4 cursor-pointer p-3">
+            <div key={index} className="w-1/4 cursor-pointer py-6 p-3">
               <div className="shadow-xl rounded-md">
                 <img
                   src={item.image[0]}

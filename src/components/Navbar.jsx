@@ -12,6 +12,7 @@ const Navbar = () => {
           <ul className="flex gap-16 text-sm font-semibold ">
             <li>
               <NavLink
+                exact
                 className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
                 to={'/'}
               >
