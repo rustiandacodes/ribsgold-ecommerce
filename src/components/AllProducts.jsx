@@ -78,7 +78,7 @@ const AllProducts = (props) => {
           >
             <span>Jacket/Sweater</span>
           </li>
-          {/* <li
+          <li
             className={`${
               oversize === true
                 ? 'bg-yellow-400 border-yellow-400'
@@ -94,7 +94,7 @@ const AllProducts = (props) => {
             }}
           >
             <span>Oversize</span>
-          </li> */}
+          </li>
           <li
             className={`${
               pants === true
