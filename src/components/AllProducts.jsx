@@ -1,23 +1,24 @@
 import { shuffleProducts } from '../service'
-import { useState } from 'react'
 import { ShoppingBag } from 'react-feather'
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
+import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 const AllProducts = (props) => {
-  const [allProducts, setAllProducts] = useState(true)
-  const [tshirt, setTshirt] = useState(false)
-  const [jacket, setJacket] = useState(false)
-  const [oversize, setOversize] = useState(false)
-  const [pants, setPants] = useState(false)
-  const [accessories, setAccessories] = useState(false)
+  const parameter = useParams()
+  const navigate = useNavigate()
 
-  const filterProducts = (key) => {
-    const filter = shuffleProducts.filter((item) => item.category === key)
-    return filter
+  const filterProducts = () => {
+    if (parameter) {
+      const filter = shuffleProducts.filter(
+        (item) => item.category === parameter.category,
+      )
+      return filter
+    } else {
+      return shuffleProducts
+    }
   }
-
-  console.log(props.showProducts)
 
   return (
     <section className="py-10 px-3 lg:px-0">
@@ -26,107 +27,78 @@ const AllProducts = (props) => {
         <ul className="flex flex-wrap justify-center gap-2 text-xs md:text-sm px-2 md:px-0">
           <li
             className={`${
-              allProducts === true
+              parameter.category === undefined
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(true)
-              setTshirt(false)
-              setJacket(false)
-              setOversize(false)
-              setPants(false)
-              setAccessories(false)
-              props.handleCategoryAllProdutcs(shuffleProducts)
+              navigate('/products')
+              props.handleCategory(shuffleProducts)
             }}
           >
             <span>All Products</span>
           </li>
           <li
             className={`${
-              tshirt === true
+              parameter.category === 't-shirt'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(false)
-              setTshirt(true)
-              setJacket(false)
-              setOversize(false)
-              setPants(false)
-              setAccessories(false)
-              props.handleCategoryTshirt(filterProducts('t-shirt'))
+              navigate('/products/t-shirt')
+              props.handleCategory(filterProducts())
             }}
           >
             <span>T-Shirt</span>
           </li>
           <li
             className={`${
-              jacket === true
+              parameter.category === 'jacket-sweater'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(false)
-              setTshirt(false)
-              setJacket(true)
-              setOversize(false)
-              setPants(false)
-              setAccessories(false)
-              props.handleCategoryJacket(filterProducts('jacket/sweater'))
+              navigate('/products/jacket-sweater')
+              props.handleCategory(filterProducts())
             }}
           >
             <span>Jacket/Sweater</span>
           </li>
           <li
             className={`${
-              oversize === true
+              parameter.category === 'oversize'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(false)
-              setTshirt(false)
-              setJacket(false)
-              setOversize(true)
-              setPants(false)
-              setAccessories(false)
+              navigate('/products/oversize')
+              props.handleCategory(filterProducts())
             }}
           >
             <span>Oversize</span>
           </li>
           <li
             className={`${
-              pants === true
+              parameter.category === 'pants'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(false)
-              setTshirt(false)
-              setJacket(false)
-              setOversize(false)
-              setPants(true)
-              setAccessories(false)
-              props.handleCategoryJacket(filterProducts('pants'))
+              navigate('/products/pants')
+              props.handleCategory(filterProducts())
             }}
           >
             <span>Pants</span>
           </li>
           <li
             className={`${
-              accessories === true
+              parameter.category === 'accessories'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
-              setAllProducts(false)
-              setTshirt(false)
-              setJacket(false)
-              setOversize(false)
-              setPants(false)
-              setAccessories(true)
-              props.handleCategoryAccessories(filterProducts('accessories'))
+              navigate('/products/accessories')
+              props.handleCategory(filterProducts())
             }}
           >
             <span>Accessories</span>
@@ -181,16 +153,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCategoryAllProdutcs: (item) =>
-      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
-    handleCategoryTshirt: (item) =>
-      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
-    handleCategoryJacket: (item) =>
-      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
-    handleCategoryPants: (item) =>
-      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
-    handleCategoryAccessories: (item) =>
-      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
+    handleCategory: (items) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: items }),
   }
 }
 

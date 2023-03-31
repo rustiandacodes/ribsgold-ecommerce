@@ -7,6 +7,7 @@ const Router = () => {
     <Routes>
       <Route exact path="/" element={<Home />}></Route>
       <Route exact path="/products" element={<Products />}></Route>
+      <Route path="/products/:category" element={<Products />}></Route>
     </Routes>
   )
 }

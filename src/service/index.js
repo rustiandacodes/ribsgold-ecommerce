@@ -273,7 +273,7 @@ export const products = [
   //   jacket products
   {
     name: 'bomber jacket',
-    category: 'jacket/sweater',
+    category: 'jacket-sweater',
     price: 169000,
     variant: [],
     size: ['m', 'l', 'xl'],
@@ -281,7 +281,7 @@ export const products = [
   },
   {
     name: 'canvas jacket',
-    category: 'jacket/sweater',
+    category: 'jacket-sweater',
     price: 119000,
     variant: [
       { color: 'black', image_path: canvasThumb1 },
@@ -294,7 +294,7 @@ export const products = [
   },
   {
     name: 'sukajan hoodie',
-    category: 'jacket/sweater',
+    category: 'jacket-sweater',
     price: 199000,
     variant: [],
     size: ['m', 'l', 'xl'],
@@ -302,7 +302,7 @@ export const products = [
   },
   {
     name: 'serpha jacket',
-    category: 'jacket/sweater',
+    category: 'jacket-sweater',
     price: 189000,
     variant: [],
     size: ['m', 'l', 'xl'],
@@ -310,7 +310,7 @@ export const products = [
   },
   {
     name: 'nano premium sweater',
-    category: 'jacket/sweater',
+    category: 'jacket-sweater',
     price: 129000,
     variant: [
       { color: 'nano black', image_path: nanoThumb1 },
@@ -508,24 +508,24 @@ export const products = [
   },
   // oversize
   {
-    name: 'oversized daviribs',
-    category: 't-shirt',
+    name: 'oversize daviribs',
+    category: 'oversize',
     price: 99000,
     variant: [],
     size: ['m', 'l', 'xl'],
     image: [daviribsThumb1, daviribsThumb2],
   },
   {
-    name: 'oversized music light',
-    category: 't-shirt',
+    name: 'oversize music light',
+    category: 'oversize',
     price: 99000,
     variant: [],
     size: ['m', 'l', 'xl'],
     image: [musiclightThumb1, musiclightThumb2],
   },
   {
-    name: 'oversized orange bear',
-    category: 't-shirt',
+    name: 'oversize orange bear',
+    category: 'oversize',
     price: 99000,
     variant: [
       { color: 'black', image_path: orangebearThumb1 },

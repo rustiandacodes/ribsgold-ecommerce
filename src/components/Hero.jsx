@@ -18,7 +18,7 @@ const Hero = () => {
             unique identity and showcase it to the world with every stitch and"
             seam.
           </p>
-          <NavLink className={'uppercase bg-yellow-400 p-3'} to={'/shop'}>
+          <NavLink className={'uppercase bg-yellow-400 p-3'} to={'/products'}>
             shop now
           </NavLink>
           <div className="mt-10 hidden lg:block">
