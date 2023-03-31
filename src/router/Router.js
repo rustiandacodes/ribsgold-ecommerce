@@ -1,10 +1,12 @@
 import { Routes, Route } from 'react-router'
 import Home from '../views/Home'
+import Products from '../views/Products'
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
+      <Route exact path="/" element={<Home />}></Route>
+      <Route exact path="/products" element={<Products />}></Route>
     </Routes>
   )
 }

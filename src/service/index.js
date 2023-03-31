@@ -131,6 +131,20 @@ import orangebearThumb1 from '../assets/sg-11134201-23010-006k9v6gjqmvaa.jpeg'
 import orangebearThumb2 from '../assets/sg-11134201-23020-p7yc37e2penv80.jpeg'
 import orangebearThumb3 from '../assets/id-11134207-23020-9iyjomo2penvec.jpeg'
 
+const shuffle = (array) => {
+  let currentIndex = array.length,
+    randomIndex
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+    ;[array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ]
+  }
+  return array
+}
+
 export const products = [
   // accesssories product
   {
@@ -521,3 +535,5 @@ export const products = [
     image: [orangebearThumb1, orangebearThumb2, orangebearThumb3],
   },
 ]
+
+export const shuffleProducts = shuffle(products)
