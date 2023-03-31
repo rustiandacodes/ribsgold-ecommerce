@@ -1,5 +1,4 @@
 import { shuffleProducts } from '../service'
-import { span } from 'react-router-dom'
 import { useState } from 'react'
 import { ShoppingBag } from 'react-feather'
 
