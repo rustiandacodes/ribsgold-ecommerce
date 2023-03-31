@@ -4,13 +4,21 @@ import { ShoppingBag } from 'react-feather'
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
 
-const AllProducts = () => {
+const AllProducts = (props) => {
   const [allProducts, setAllProducts] = useState(true)
   const [tshirt, setTshirt] = useState(false)
   const [jacket, setJacket] = useState(false)
   const [oversize, setOversize] = useState(false)
   const [pants, setPants] = useState(false)
   const [accessories, setAccessories] = useState(false)
+
+  const filterProducts = (key) => {
+    const filter = shuffleProducts.filter((item) => item.category === key)
+    return filter
+  }
+
+  console.log(props.showProducts)
+
   return (
     <section className="py-10 px-3 lg:px-0">
       <div className="container mx-auto">
@@ -21,7 +29,7 @@ const AllProducts = () => {
               allProducts === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(true)
               setTshirt(false)
@@ -29,6 +37,7 @@ const AllProducts = () => {
               setOversize(false)
               setPants(false)
               setAccessories(false)
+              props.handleCategoryAllProdutcs(shuffleProducts)
             }}
           >
             <span>All Products</span>
@@ -38,7 +47,7 @@ const AllProducts = () => {
               tshirt === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(false)
               setTshirt(true)
@@ -46,6 +55,7 @@ const AllProducts = () => {
               setOversize(false)
               setPants(false)
               setAccessories(false)
+              props.handleCategoryTshirt(filterProducts('t-shirt'))
             }}
           >
             <span>T-Shirt</span>
@@ -55,7 +65,7 @@ const AllProducts = () => {
               jacket === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(false)
               setTshirt(false)
@@ -63,16 +73,17 @@ const AllProducts = () => {
               setOversize(false)
               setPants(false)
               setAccessories(false)
+              props.handleCategoryJacket(filterProducts('jacket/sweater'))
             }}
           >
             <span>Jacket/Sweater</span>
           </li>
-          <li
+          {/* <li
             className={`${
               oversize === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(false)
               setTshirt(false)
@@ -83,13 +94,13 @@ const AllProducts = () => {
             }}
           >
             <span>Oversize</span>
-          </li>
+          </li> */}
           <li
             className={`${
               pants === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(false)
               setTshirt(false)
@@ -97,6 +108,7 @@ const AllProducts = () => {
               setOversize(false)
               setPants(true)
               setAccessories(false)
+              props.handleCategoryJacket(filterProducts('pants'))
             }}
           >
             <span>Pants</span>
@@ -106,7 +118,7 @@ const AllProducts = () => {
               accessories === true
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-2 p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               setAllProducts(false)
               setTshirt(false)
@@ -114,6 +126,7 @@ const AllProducts = () => {
               setOversize(false)
               setPants(false)
               setAccessories(true)
+              props.handleCategoryAccessories(filterProducts('accessories'))
             }}
           >
             <span>Accessories</span>
@@ -122,7 +135,7 @@ const AllProducts = () => {
 
         {/* show the product */}
         <div className="mt-10 flex flex-wrap justify-center">
-          {shuffleProducts.map((item, index) => {
+          {props.showProducts.map((item, index) => {
             return (
               <div
                 key={index}
@@ -135,12 +148,12 @@ const AllProducts = () => {
                     alt={item.name}
                   />
                   <div className="p-3">
-                    <h3 className="capitalize font-bold truncate">
+                    <h3 className="capitalize font-bold text-sm md:text-lg truncate">
                       {item.name}
                     </h3>
                     <div className="flex justify-between items-center">
                       <div className="py-2">
-                        <p className="text-sm text-slate-900">
+                        <p className="text-xs font-semibold md:text-sm text-slate-900">
                           IDR {item.price.toLocaleString()}
                         </p>
                         <p className="text-xs line-through mt-1 text-slate-700">
@@ -168,7 +181,16 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSomeAction: () => dispatch({ type: ActionType.ADD_SOME_ACTION }),
+    handleCategoryAllProdutcs: (item) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
+    handleCategoryTshirt: (item) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
+    handleCategoryJacket: (item) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
+    handleCategoryPants: (item) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
+    handleCategoryAccessories: (item) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: item }),
   }
 }
 

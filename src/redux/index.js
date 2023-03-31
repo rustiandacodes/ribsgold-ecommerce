@@ -1,14 +1,16 @@
 import ActionType from './globalActionType'
+import { shuffleProducts } from '../service'
+
 const globalState = {
-  showProducts: [],
+  showProducts: shuffleProducts,
 }
 
 const rootReducer = (state = globalState, action) => {
   switch (action.type) {
-    case ActionType.ADD_SOME_ACTION:
+    case ActionType.CHANGE_SHOW_PRODUCT:
       return {
         ...state,
-        showProducts: ['mencoba'],
+        showProducts: action.results,
       }
     default:
       return state

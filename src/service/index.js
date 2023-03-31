@@ -277,7 +277,7 @@ export const products = [
     price: 169000,
     variant: [],
     size: ['m', 'l', 'xl'],
-    image: [bomberThumb1, bomberThumb2, bomberThumb3],
+    image: [bomberThumb3, bomberThumb1, bomberThumb2],
   },
   {
     name: 'canvas jacket',
