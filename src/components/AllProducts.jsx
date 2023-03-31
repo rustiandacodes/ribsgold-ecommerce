@@ -1,6 +1,8 @@
 import { shuffleProducts } from '../service'
 import { useState } from 'react'
 import { ShoppingBag } from 'react-feather'
+import { connect } from 'react-redux'
+import ActionType from '../redux/globalActionType'
 
 const AllProducts = () => {
   const [allProducts, setAllProducts] = useState(true)
@@ -158,4 +160,16 @@ const AllProducts = () => {
   )
 }
 
-export default AllProducts
+const mapStateToProps = (state) => {
+  return {
+    showProducts: state.showProducts,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleSomeAction: () => dispatch({ type: ActionType.ADD_SOME_ACTION }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllProducts)
