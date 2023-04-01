@@ -1,8 +1,7 @@
 import ActionType from './globalActionType'
-import { shuffleProducts } from '../service'
 
 const globalState = {
-  showProducts: shuffleProducts,
+  showProduct: [],
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -10,7 +9,7 @@ const rootReducer = (state = globalState, action) => {
     case ActionType.CHANGE_SHOW_PRODUCT:
       return {
         ...state,
-        showProducts: action.results,
+        showProduct: action.results,
       }
     default:
       return state

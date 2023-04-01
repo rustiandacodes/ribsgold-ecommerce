@@ -11,8 +11,6 @@ const AllProducts = (props) => {
   const navigate = useNavigate()
   const [productByCategory, setProductByCategory] = useState([])
 
-  // test new branch
-
   useEffect(() => {
     const filterProducts = (key) => {
       const filter = key
@@ -109,6 +107,10 @@ const AllProducts = (props) => {
               <div
                 key={index}
                 className="w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer py-6 p-3"
+                onClick={() => {
+                  props.handleShowProduct([item])
+                  navigate('/detail')
+                }}
               >
                 <div className="shadow-xl rounded-md">
                   <img
@@ -144,13 +146,13 @@ const AllProducts = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    showProducts: state.showProducts,
+    showProduct: state.showProduct,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleCategory: (items) =>
+    handleShowProduct: (items) =>
       dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: items }),
   }
 }
