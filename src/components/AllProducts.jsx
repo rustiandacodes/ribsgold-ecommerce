@@ -11,6 +11,8 @@ const AllProducts = (props) => {
   const navigate = useNavigate()
   const [productByCategory, setProductByCategory] = useState([])
 
+  // test new branch
+
   useEffect(() => {
     const filterProducts = (key) => {
       const filter = key
