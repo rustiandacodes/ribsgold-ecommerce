@@ -4,21 +4,22 @@ import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
+import { useEffect, useState } from 'react'
 
 const AllProducts = (props) => {
   const parameter = useParams()
   const navigate = useNavigate()
+  const [productByCategory, setProductByCategory] = useState([])
 
-  const filterProducts = () => {
-    if (parameter) {
-      const filter = shuffleProducts.filter(
-        (item) => item.category === parameter.category,
-      )
-      return filter
-    } else {
-      return shuffleProducts
+  useEffect(() => {
+    const filterProducts = (key) => {
+      const filter = key
+        ? shuffleProducts.filter((item) => item.category === key)
+        : shuffleProducts
+      setProductByCategory(filter)
     }
-  }
+    filterProducts(parameter.category)
+  }, [parameter.category])
 
   return (
     <section className="py-10 px-3 lg:px-0">
@@ -33,7 +34,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products')
-              props.handleCategory(shuffleProducts)
             }}
           >
             <span>All Products</span>
@@ -46,7 +46,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/t-shirt')
-              props.handleCategory(filterProducts())
             }}
           >
             <span>T-Shirt</span>
@@ -59,7 +58,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/jacket-sweater')
-              props.handleCategory(filterProducts())
             }}
           >
             <span>Jacket/Sweater</span>
@@ -72,7 +70,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/oversize')
-              props.handleCategory(filterProducts())
             }}
           >
             <span>Oversize</span>
@@ -85,7 +82,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/pants')
-              props.handleCategory(filterProducts())
             }}
           >
             <span>Pants</span>
@@ -98,7 +94,6 @@ const AllProducts = (props) => {
             } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/accessories')
-              props.handleCategory(filterProducts())
             }}
           >
             <span>Accessories</span>
@@ -107,7 +102,7 @@ const AllProducts = (props) => {
 
         {/* show the product */}
         <div className="mt-10 flex flex-wrap justify-center">
-          {props.showProducts.map((item, index) => {
+          {productByCategory.map((item, index) => {
             return (
               <div
                 key={index}
