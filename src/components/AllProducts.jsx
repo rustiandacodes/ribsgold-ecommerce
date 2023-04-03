@@ -112,7 +112,7 @@ const AllProducts = (props) => {
                   navigate('/detail')
                 }}
               >
-                <div className="shadow-xl rounded-md">
+                <div className="card-shadow rounded-xl">
                   <img
                     src={item.image[0]}
                     className="rounded-t-xl"

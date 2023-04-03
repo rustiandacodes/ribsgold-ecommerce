@@ -23,33 +23,35 @@ const DetailProduct = (props) => {
         {props.showProduct.map((item, index) => {
           return (
             <div
-              className="flex flex-col md:flex-row justify-center gap-10 md:py-10"
+              className="flex flex-col md:flex-row justify-center gap-14 md:py-10"
               key={index}
             >
-              <div className="md:w-1/3 p-2 card-shadow overflow-hidden ">
-                <img
-                  src={
-                    currentIndexImg === undefined
-                      ? item.image[0]
-                      : currentIndexImg
-                  }
-                  alt={item.name}
-                  className="cursor-pointer"
-                />
-                <div className="flex gap-2 mt-2">
-                  {item.image.map((subImg, index) => {
-                    return (
-                      <img
-                        src={subImg}
-                        key={index}
-                        className="w-28 cursor-pointer hover:grayscale"
-                        alt={subImg}
-                        onClick={() => {
-                          setCurrentIndexImg(subImg)
-                        }}
-                      />
-                    )
-                  })}
+              <div className="md:w-1/3  ">
+                <div className="card-shadow p-3 overflow-hidden">
+                  <img
+                    src={
+                      currentIndexImg === undefined
+                        ? item.image[0]
+                        : currentIndexImg
+                    }
+                    alt={item.name}
+                    className="cursor-pointer"
+                  />
+                  <div className="flex gap-2 w-full mt-2">
+                    {item.image.map((subImg, index) => {
+                      return (
+                        <img
+                          src={subImg}
+                          key={index}
+                          className="w-1/3 cursor-pointer hover:grayscale"
+                          alt={subImg}
+                          onClick={() => {
+                            setCurrentIndexImg(subImg)
+                          }}
+                        />
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
               <div className="md:w-1/2">
@@ -57,14 +59,16 @@ const DetailProduct = (props) => {
                   {item.name}
                 </h2>
                 <div className="py-2 flex gap-2">
-                  <p className="font-bold text-sm lg:text-lg w-32">Price </p>
-                  <p className="font-semibold md:text-xl text-slate-900">
+                  <p className="font-bold text-sm lg:text-lg w-[30%]">Price </p>
+                  <p className="font-semibold md:text-xl w-[70%] text-slate-900">
                     IDR {item.price.toLocaleString()}
                   </p>
                 </div>
                 <div className="py-2 flex gap-2 my-3">
-                  <p className="font-bold text-sm lg:text-lg w-32">Variant</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="font-bold text-sm lg:text-lg w-[30%]">
+                    Variant
+                  </p>
+                  <div className="flex flex-wrap gap-2 w-[70%]">
                     {item.variant.map((item) => {
                       return (
                         <p
@@ -85,8 +89,8 @@ const DetailProduct = (props) => {
                   </div>
                 </div>
                 <div className="py-2 flex gap-2">
-                  <p className="font-bold text-sm lg:text-lg w-32">Qty </p>
-                  <div className="flex gap-2">
+                  <p className="font-bold text-sm lg:text-lg w-[30%]">Qty </p>
+                  <div className="flex gap-2 w-[70%]">
                     <span
                       className="w-5 text-center bg-yellow-400 cursor-pointer"
                       onClick={() => handleMinus()}

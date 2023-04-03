@@ -65,7 +65,7 @@ const Popular = () => {
         {popular.map((item, index) => {
           return (
             <div key={index} className="w-1/4 cursor-pointer py-6 p-3">
-              <div className="shadow-xl rounded-md">
+              <div className="card-shadow rounded-xl">
                 <img
                   src={item.image[0]}
                   className="rounded-t-xl"
