@@ -1,8 +1,12 @@
 import Slider from 'react-slick'
 import { products } from '../service'
 import { ShoppingBag } from 'react-feather'
+import { useNavigate } from 'react-router'
+import { connect } from 'react-redux'
+import ActionType from '../redux/globalActionType'
 
-const Popular = () => {
+const Popular = (props) => {
+  const navigate = useNavigate()
   function shuffle(array) {
     let currentIndex = array.length,
       randomIndex
@@ -64,7 +68,14 @@ const Popular = () => {
       <Slider {...settings}>
         {popular.map((item, index) => {
           return (
-            <div key={index} className="w-1/4 cursor-pointer py-6 p-3">
+            <div
+              key={index}
+              className="w-1/4 cursor-pointer py-6 p-3"
+              onClick={() => {
+                props.handleShowProduct([item])
+                navigate('/detail')
+              }}
+            >
               <div className="card-shadow rounded-xl">
                 <img
                   src={item.image[0]}
@@ -94,4 +105,17 @@ const Popular = () => {
   )
 }
 
-export default Popular
+const mapStateToProps = (state) => {
+  return {
+    showProduct: state.showProduct,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleShowProduct: (items) =>
+      dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: items }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Popular)
