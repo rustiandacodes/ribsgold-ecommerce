@@ -4,6 +4,19 @@ import { useState } from 'react'
 
 const DetailProduct = (props) => {
   const [currentIndexImg, setCurrentIndexImg] = useState()
+  const [variant, setVariant] = useState('')
+  const [counter, setCounter] = useState(1)
+
+  const handlePlus = () => {
+    setCounter(counter + 1)
+  }
+
+  const handleMinus = () => {
+    if (counter > 1) {
+      setCounter(counter - 1)
+    }
+  }
+
   return (
     <section className="py-10 px-8 lg:px-0">
       <div className="container mx-auto">
@@ -55,9 +68,14 @@ const DetailProduct = (props) => {
                     {item.variant.map((item) => {
                       return (
                         <p
-                          className=" md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate border-black hover:text-yellow-400 hover:border-yellow-400"
+                          className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                            variant === item.color
+                              ? 'text-yellow-400 border-yellow-400'
+                              : 'border-black'
+                          }`}
                           onClick={() => {
                             setCurrentIndexImg(item.image_path)
+                            setVariant(item.color)
                           }}
                         >
                           {item.color}
@@ -69,15 +87,21 @@ const DetailProduct = (props) => {
                 <div className="py-2 flex gap-2">
                   <p className="font-bold text-sm lg:text-lg w-32">Qty </p>
                   <div className="flex gap-2">
-                    <span className="w-5 text-center bg-yellow-400 cursor-pointer">
+                    <span
+                      className="w-5 text-center bg-yellow-400 cursor-pointer"
+                      onClick={() => handleMinus()}
+                    >
                       -
                     </span>
                     <input
                       className="outline outline-1 w-10 text-center"
-                      value={0}
+                      value={counter}
                       type="text"
                     />
-                    <span className="w-5 text-center  bg-yellow-400 cursor-pointer">
+                    <span
+                      className="w-5 text-center  bg-yellow-400 cursor-pointer"
+                      onClick={() => handlePlus()}
+                    >
                       +
                     </span>
                   </div>
