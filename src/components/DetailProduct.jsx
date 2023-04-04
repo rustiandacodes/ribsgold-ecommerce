@@ -12,15 +12,13 @@ const DetailProduct = (props) => {
   }
 
   const handleMinus = () => {
-    if (counter > 1) {
-      setCounter(counter - 1)
-    }
+    counter > 1 ? setCounter(counter - 1) : setCounter(1)
   }
 
   return (
     <section className="py-10 px-8 lg:px-0">
       <div className="container mx-auto">
-        {props.showProduct.map((item, index) => {
+        {props.showProducts.map((item, index) => {
           return (
             <div
               className="flex flex-col md:flex-row justify-center gap-14 md:py-10"
@@ -69,23 +67,26 @@ const DetailProduct = (props) => {
                     Variant
                   </p>
                   <div className="flex flex-wrap gap-2 w-[70%]">
-                    {item.variant.map((item) => {
-                      return (
-                        <p
-                          className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
-                            variant === item.color
-                              ? 'text-yellow-400 border-yellow-400'
-                              : 'border-black'
-                          }`}
-                          onClick={() => {
-                            setCurrentIndexImg(item.image_path)
-                            setVariant(item.color)
-                          }}
-                        >
-                          {item.color}
-                        </p>
-                      )
-                    })}
+                    {item.variant.length === 0
+                      ? 'No variant'
+                      : item.variant.map((item, index) => {
+                          return (
+                            <p
+                              className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                                variant === item.color
+                                  ? 'text-yellow-400 border-yellow-400'
+                                  : 'border-black'
+                              }`}
+                              key={index}
+                              onClick={() => {
+                                setCurrentIndexImg(item.image_path)
+                                setVariant(item.color)
+                              }}
+                            >
+                              {item.color}
+                            </p>
+                          )
+                        })}
                   </div>
                 </div>
                 <div className="py-2 flex gap-2">
@@ -112,7 +113,12 @@ const DetailProduct = (props) => {
                 </div>
                 <div className="flex gap-3 mt-8">
                   <button className="w-1/2 py-2 bg-yellow-400">Buy Now</button>
-                  <button className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400">
+                  <button
+                    className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400"
+                    onClick={() => {
+                      props.handleAddToChart(props.showProducts[0])
+                    }}
+                  >
                     Add To Chart
                   </button>
                 </div>
@@ -139,12 +145,14 @@ const DetailProduct = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    showProduct: state.showProduct,
+    showProducts: state.showProducts,
+    addToChartProducts: state.addToChartProducts,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSomeAct: () => dispatch({ type: ActionType.ADD_SOME_ACTION }),
+    handleAddToChart: (item) =>
+      dispatch({ type: ActionType.ADD_TO_CHART, results: item }),
   }
 }
 

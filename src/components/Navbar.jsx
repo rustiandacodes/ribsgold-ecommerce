@@ -4,10 +4,15 @@ import { Search } from 'react-feather'
 import { Menu } from 'react-feather'
 import { X } from 'react-feather'
 
+import { connect } from 'react-redux'
+import ActionType from '../redux/globalActionType'
+
 import { useState } from 'react'
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
+
+  console.log(props.addToChartProducts.length)
 
   const handleHamburger = () => {
     if (hamburger === true) {
@@ -70,8 +75,14 @@ const Navbar = () => {
             <Search size={32} />
           </div>
           <div className="relative cursor-pointer">
-            <span className="absolute w-5 -right-2 rounded-full bg-yellow-500 text-white border-2 border-white">
-              <p className="text-xs text-center font-semibold text-black">5</p>
+            <span
+              className={`${
+                props.addToChartProducts.length === 0 ? 'hidden' : ''
+              } absolute w-6 p-[2px] -right-3 -top-1 rounded-full bg-yellow-500 text-white border-2 border-white`}
+            >
+              <p className="text-xs text-center font-semibold text-black">
+                {props.addToChartProducts.length}
+              </p>
             </span>
             <ShoppingCart size={32} />
           </div>
@@ -89,4 +100,16 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+const mapStateToProps = (state) => {
+  return {
+    addToChartProducts: state.addToChartProducts,
+  }
+}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleSomeAction: (item) =>
+      dispatch({ type: ActionType.ADD_SOME_ACTION, results: item }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
