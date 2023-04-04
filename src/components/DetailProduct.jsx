@@ -12,9 +12,7 @@ const DetailProduct = (props) => {
   }
 
   const handleMinus = () => {
-    if (counter > 1) {
-      setCounter(counter - 1)
-    }
+    counter > 1 ? setCounter(counter - 1) : setCounter(1)
   }
 
   return (
@@ -70,7 +68,7 @@ const DetailProduct = (props) => {
                   </p>
                   <div className="flex flex-wrap gap-2 w-[70%]">
                     {item.variant.length === 0
-                      ? 'No variant here'
+                      ? 'No variant'
                       : item.variant.map((item, index) => {
                           return (
                             <p
