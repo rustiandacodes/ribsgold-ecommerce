@@ -20,7 +20,7 @@ const DetailProduct = (props) => {
   return (
     <section className="py-10 px-8 lg:px-0">
       <div className="container mx-auto">
-        {props.showProduct.map((item, index) => {
+        {props.showProducts.map((item, index) => {
           return (
             <div
               className="flex flex-col md:flex-row justify-center gap-14 md:py-10"
@@ -69,7 +69,6 @@ const DetailProduct = (props) => {
                     Variant
                   </p>
                   <div className="flex flex-wrap gap-2 w-[70%]">
-                    {console.log(item.variant)}
                     {item.variant.length === 0
                       ? 'No variant here'
                       : item.variant.map((item, index) => {
@@ -116,7 +115,12 @@ const DetailProduct = (props) => {
                 </div>
                 <div className="flex gap-3 mt-8">
                   <button className="w-1/2 py-2 bg-yellow-400">Buy Now</button>
-                  <button className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400">
+                  <button
+                    className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400"
+                    onClick={() => {
+                      props.handleAddToChart(props.showProducts[0])
+                    }}
+                  >
                     Add To Chart
                   </button>
                 </div>
@@ -143,12 +147,14 @@ const DetailProduct = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    showProduct: state.showProduct,
+    showProducts: state.showProducts,
+    addToChartProducts: state.addToChartProducts,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSomeAct: () => dispatch({ type: ActionType.ADD_SOME_ACTION }),
+    handleAddToChart: (item) =>
+      dispatch({ type: ActionType.ADD_TO_CHART, results: item }),
   }
 }
 

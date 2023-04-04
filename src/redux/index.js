@@ -1,7 +1,8 @@
 import ActionType from './globalActionType'
 
 const globalState = {
-  showProduct: [],
+  showProducts: [],
+  addToChartProducts: [],
 }
 
 const rootReducer = (state = globalState, action) => {
@@ -9,7 +10,12 @@ const rootReducer = (state = globalState, action) => {
     case ActionType.CHANGE_SHOW_PRODUCT:
       return {
         ...state,
-        showProduct: action.results,
+        showProducts: action.results,
+      }
+    case ActionType.ADD_TO_CHART:
+      return {
+        ...state,
+        addToChartProducts: state.addToChartProducts.concat(action.results),
       }
     default:
       return state
