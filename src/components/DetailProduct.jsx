@@ -69,23 +69,27 @@ const DetailProduct = (props) => {
                     Variant
                   </p>
                   <div className="flex flex-wrap gap-2 w-[70%]">
-                    {item.variant.map((item) => {
-                      return (
-                        <p
-                          className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
-                            variant === item.color
-                              ? 'text-yellow-400 border-yellow-400'
-                              : 'border-black'
-                          }`}
-                          onClick={() => {
-                            setCurrentIndexImg(item.image_path)
-                            setVariant(item.color)
-                          }}
-                        >
-                          {item.color}
-                        </p>
-                      )
-                    })}
+                    {console.log(item.variant)}
+                    {item.variant.length === 0
+                      ? 'No variant here'
+                      : item.variant.map((item, index) => {
+                          return (
+                            <p
+                              className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                                variant === item.color
+                                  ? 'text-yellow-400 border-yellow-400'
+                                  : 'border-black'
+                              }`}
+                              key={index}
+                              onClick={() => {
+                                setCurrentIndexImg(item.image_path)
+                                setVariant(item.color)
+                              }}
+                            >
+                              {item.color}
+                            </p>
+                          )
+                        })}
                   </div>
                 </div>
                 <div className="py-2 flex gap-2">
