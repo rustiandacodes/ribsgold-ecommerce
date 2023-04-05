@@ -12,15 +12,16 @@ import { useState } from 'react'
 const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
 
-  console.log(props.addToChartProducts.length)
-
   const handleHamburger = () => {
-    if (hamburger === true) {
-      setHamburger(false)
-    } else {
-      setHamburger(true)
-    }
+    hamburger === true ? setHamburger(false) : setHamburger(true)
   }
+
+  const handleAddTochartButton = () => {
+    props.showAddToChart === false
+      ? props.handleShowAddToChart(true)
+      : props.handleShowAddToChart(false)
+  }
+
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
       <div className="container mx-auto flex justify-between items-center py-5">
@@ -28,7 +29,7 @@ const Navbar = (props) => {
         <div
           className={`${
             hamburger === false ? 'absolute h-screen' : ''
-          } top-0 right-0 left-0 w-full md:h-fit z-50 bg-teal-300`}
+          } top-0 right-0 left-0 w-full md:h-fit z-50`}
         >
           <ul
             className={`${
@@ -74,7 +75,12 @@ const Navbar = (props) => {
           <div className="cursor-pointer">
             <Search size={32} />
           </div>
-          <div className="relative cursor-pointer">
+          <div
+            className="relative cursor-pointer"
+            onClick={() => {
+              handleAddTochartButton()
+            }}
+          >
             <span
               className={`${
                 props.addToChartProducts.length === 0 ? 'hidden' : ''
@@ -103,12 +109,13 @@ const Navbar = (props) => {
 const mapStateToProps = (state) => {
   return {
     addToChartProducts: state.addToChartProducts,
+    showAddToChart: state.showAddToChart,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleSomeAction: (item) =>
-      dispatch({ type: ActionType.ADD_SOME_ACTION, results: item }),
+    handleShowAddToChart: (value) =>
+      dispatch({ type: ActionType.SHOW_ADD_TO_CHART, results: value }),
   }
 }
 
