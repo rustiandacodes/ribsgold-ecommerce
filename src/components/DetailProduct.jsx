@@ -46,6 +46,9 @@ const DetailProduct = (props) => {
                           onClick={() => {
                             setCurrentIndexImg(subImg)
                           }}
+                          onMouseEnter={() => {
+                            setCurrentIndexImg(subImg)
+                          }}
                         />
                       )
                     })}
@@ -78,6 +81,10 @@ const DetailProduct = (props) => {
                                   : 'border-black'
                               }`}
                               key={index}
+                              onMouseEnter={() => {
+                                setCurrentIndexImg(item.image_path)
+                                setVariant(item.color)
+                              }}
                               onClick={() => {
                                 setCurrentIndexImg(item.image_path)
                                 setVariant(item.color)
