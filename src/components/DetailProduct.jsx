@@ -19,7 +19,7 @@ const DetailProduct = (props) => {
   const setAddToChartData = (name, img, price) => {
     const data = {
       name: name,
-      price: price,
+      price: price * counter,
       img: img,
       qty: counter,
       variant: variant,
