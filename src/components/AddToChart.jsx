@@ -62,7 +62,7 @@ const AddToChart = (props) => {
           {props.addToChartProducts.map((item, index) => {
             return (
               <div
-                className="flex gap-5 p-5 h-44 mb-3 bg-white card-shadow rounded-lg relative"
+                className="flex gap-5 p-5 h-fit mb-3 bg-white card-shadow rounded-lg relative"
                 key={index}
               >
                 <Trash2
@@ -76,7 +76,7 @@ const AddToChart = (props) => {
                 <img
                   src={item.img[0]}
                   alt={item.name}
-                  className="rounded-lg w-50"
+                  className="rounded-lg w-32 h-32"
                 />
                 <div className="capitalize overflow-hidden">
                   <p className="font-bold truncate mb-2">{item.name}</p>
