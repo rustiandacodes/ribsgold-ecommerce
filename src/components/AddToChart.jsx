@@ -73,8 +73,12 @@ const AddToChart = (props) => {
                     handleRemoveOneOfTheItem(item.name)
                   }}
                 />
-                <img src={item.img[0]} alt={item.name} className="rounded-lg" />
-                <div className="capitalize overflow-hidden">
+                <img
+                  src={item.img[0]}
+                  alt={item.name}
+                  className="rounded-lg w-[45%]"
+                />
+                <div className="capitalize overflow-hidden w-[55]">
                   <p className="font-bold truncate mb-2">{item.name}</p>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Variant</p>
@@ -106,7 +110,7 @@ const AddToChart = (props) => {
               <p className="font-bold text-lg md:text-xl">Subtotal :</p>
               <p>IDR {subsTotal().toLocaleString()}</p>
             </div>
-            <button className="py-1 px-3 bg-yellow-400 font-semibold rounded-lg text-lg">
+            <button className="py-2 px-3 bg-yellow-400 font-semibold rounded-lg text-lg">
               Checkout
             </button>
           </div>
