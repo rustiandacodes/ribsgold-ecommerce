@@ -73,7 +73,7 @@ const AddToChart = (props) => {
                     handleRemoveOneOfTheItem(item.name)
                   }}
                 />
-                <img src={item.img[0]} alt={item.name} />
+                <img src={item.img[0]} alt={item.name} className="rounded-lg" />
                 <div className="capitalize">
                   <p className="font-bold truncate mb-2">{item.name}</p>
                   <div className="flex gap-3 font-extralight text-xs py-1">
@@ -101,9 +101,14 @@ const AddToChart = (props) => {
         </div>
         <div className="px-8">
           <hr className="border-2 my-5 bg-slate-300 border-dashed" />
-          <div className="flex items-center justify-between">
-            <p className="font-bold text-xl">Subs Total</p>
-            <p>IDR {subsTotal().toLocaleString()}</p>
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-5">
+              <p className="font-bold text-xl">Subtotal :</p>
+              <p>IDR {subsTotal().toLocaleString()}</p>
+            </div>
+            <button className="py-1 px-3 bg-yellow-400 font-semibold rounded-lg">
+              Checkout
+            </button>
           </div>
         </div>
       </div>

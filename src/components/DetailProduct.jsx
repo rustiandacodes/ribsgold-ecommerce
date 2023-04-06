@@ -29,8 +29,8 @@ const DetailProduct = (props) => {
   }
 
   return (
-    <section className="py-10 px-8 lg:px-0">
-      <div className="container mx-auto">
+    <section className="py-8 md:py-10 md:mt-5 bg-slate-100">
+      <div className="container py-8 mx-auto rounded-xl px-8 lg:px-0 bg-white">
         {props.showProducts.map((item, index) => {
           return (
             <div
@@ -38,7 +38,7 @@ const DetailProduct = (props) => {
               key={index}
             >
               <div className="md:w-1/3  ">
-                <div className="card-shadow p-3 overflow-hidden">
+                <div className="card-shadow p-3 rounded-xl overflow-hidden">
                   <img
                     src={
                       currentIndexImg === undefined
@@ -46,7 +46,7 @@ const DetailProduct = (props) => {
                         : currentIndexImg
                     }
                     alt={item.name}
-                    className="cursor-pointer"
+                    className="cursor-pointer rounded-lg"
                   />
                   <div className="flex gap-2 w-full mt-2">
                     {item.image.map((subImg, index) => {
@@ -54,7 +54,7 @@ const DetailProduct = (props) => {
                         <img
                           src={subImg}
                           key={index}
-                          className="w-1/3 cursor-pointer hover:grayscale"
+                          className="w-1/3 cursor-pointer hover:grayscale rounded-lg"
                           alt={subImg}
                           onClick={() => {
                             setCurrentIndexImg(subImg)
