@@ -68,13 +68,17 @@ const AddToChart = (props) => {
                 <Trash2
                   size={20}
                   color="#334155"
-                  className="absolute right-4 bottom-5  cursor-pointer"
+                  className="absolute right-4 bottom-5 cursor-pointer"
                   onClick={() => {
                     handleRemoveOneOfTheItem(item.name)
                   }}
                 />
-                <img src={item.img[0]} alt={item.name} className="rounded-lg" />
-                <div className="capitalize overflow-hidden w-[55%]">
+                <img
+                  src={item.img[0]}
+                  alt={item.name}
+                  className="rounded-lg w-50"
+                />
+                <div className="capitalize overflow-hidden">
                   <p className="font-bold truncate mb-2">{item.name}</p>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Variant</p>
