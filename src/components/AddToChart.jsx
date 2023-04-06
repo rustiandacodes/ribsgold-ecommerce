@@ -78,10 +78,12 @@ const AddToChart = (props) => {
           )
         })}
       </div>
-      <hr className="border-2 my-5 bg-slate-300 border-dashed" />
-      <div className="flex items-center justify-between">
-        <p className="font-bold text-xl">Subs Total</p>
-        <p>IDR {subsTotal().toLocaleString()}</p>
+      <div className="px-8">
+        <hr className="border-2 my-5 bg-slate-300 border-dashed" />
+        <div className="flex items-center justify-between">
+          <p className="font-bold text-xl">Subs Total</p>
+          <p>IDR {subsTotal().toLocaleString()}</p>
+        </div>
       </div>
     </div>
   )
