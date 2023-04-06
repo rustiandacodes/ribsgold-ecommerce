@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ShoppingCart } from 'react-feather'
 import { Search } from 'react-feather'
 import { Menu } from 'react-feather'
@@ -11,6 +11,8 @@ import { useState } from 'react'
 
 const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
+  const navigate = useNavigate()
+  const [navChoice, setNavChoice] = useState('/')
 
   const handleHamburger = () => {
     hamburger === true ? setHamburger(false) : setHamburger(true)
@@ -25,7 +27,12 @@ const Navbar = (props) => {
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
       <div className="container mx-auto flex justify-between items-center py-5">
-        <span className="uppercase text-xl font-bold">rbsgld</span>
+        <span
+          className="uppercase text-xl font-black cursor-pointer"
+          onClick={() => navigate('/')}
+        >
+          RIBSGOLD
+        </span>
         <div
           className={`${
             hamburger === false ? 'absolute h-screen' : ''
@@ -37,37 +44,56 @@ const Navbar = (props) => {
             } flex flex-col md:flex-row justify-center items-center bg-white  md:h-fit gap-16 h-full text-sm font-semibold`}
           >
             <li>
-              <NavLink
-                exact
-                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
-                to={'/'}
+              <span
+                className={`${
+                  navChoice === '/' ? 'active' : ''
+                } hover:opacity-60 cursor-pointer uppercase pb-1 `}
+                onClick={() => {
+                  setNavChoice('/')
+                  navigate('/')
+                }}
               >
                 Home
-              </NavLink>
+              </span>
             </li>
             <li>
-              <NavLink
-                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
-                to={'/products'}
+              <span
+                className={`${
+                  navChoice === 'products' ? 'active' : ''
+                } hover:opacity-60 cursor-pointer uppercase pb-1`}
+                onClick={() => {
+                  setNavChoice('products')
+                  navigate('/products')
+                }}
               >
                 products
-              </NavLink>
+              </span>
             </li>
             <li>
-              <NavLink
-                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
-                to={'/about'}
+              <span
+                className={`${
+                  navChoice === 'about' ? 'active' : ''
+                } hover:opacity-60 cursor-pointer uppercase pb-1`}
+                onClick={() => {
+                  setNavChoice('about')
+                  navigate('/about')
+                }}
               >
                 About
-              </NavLink>
+              </span>
             </li>
             <li>
-              <NavLink
-                className={'hover:border-b-2 border-yellow-400 pb-1 uppercase'}
-                to={'/contact'}
+              <span
+                className={`${
+                  navChoice === 'contact' ? 'active' : ''
+                } hover:opacity-60 cursor-pointer uppercase pb-1`}
+                onClick={() => {
+                  setNavChoice('contact')
+                  navigate('/contact')
+                }}
               >
                 Contact
-              </NavLink>
+              </span>
             </li>
           </ul>
         </div>

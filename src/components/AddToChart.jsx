@@ -79,7 +79,6 @@ const AddToChart = (props) => {
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Variant</p>
                     <p>
-                      {' '}
                       {item.variant.length === 0 ? 'No Variant' : item.variant}
                     </p>
                   </div>
@@ -110,8 +109,6 @@ const AddToChart = (props) => {
       </div>
     )
   }
-
-  console.log(props.addToChartProducts)
 
   return (
     <div
