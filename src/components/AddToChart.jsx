@@ -43,7 +43,7 @@ const AddToChart = (props) => {
         {props.addToChartProducts.map((item, index) => {
           return (
             <div
-              className="flex gap-8 p-5 h-36 mb-3 bg-white card-shadow rounded-lg relative"
+              className="flex gap-5 p-5 h-44 mb-3 bg-white card-shadow rounded-lg relative"
               key={index}
             >
               <Trash2
@@ -51,27 +51,30 @@ const AddToChart = (props) => {
                 color="#334155"
                 className="absolute right-4 bottom-5  cursor-pointer"
                 onClick={() => {
-                  // setDeleteKey(item.name)
                   handleRemoveOneOfTheItem(item.name)
                 }}
               />
               <img src={item.img[0]} alt={item.name} />
               <div className="capitalize">
-                <p className="font-bold truncate">{item.name}</p>
-                <div className="flex gap-3 font-extralight mt-2 text-xs py-1">
-                  <p className="font-bold w-14">Total</p>
-                  <p>IDR {item.price.toLocaleString()}</p>
-                </div>
-                <div className="flex gap-3 font-extralight text-xs py-1">
-                  <p className="font-bold w-14">Quantity</p>
-                  <p> {item.qty}</p>
-                </div>
+                <p className="font-bold truncate mb-2">{item.name}</p>
                 <div className="flex gap-3 font-extralight text-xs py-1">
                   <p className="font-bold w-14">Variant</p>
                   <p>
                     {' '}
                     {item.variant.length === 0 ? 'No Variant' : item.variant}
                   </p>
+                </div>
+                <div className="flex gap-3 font-extralight text-xs py-1">
+                  <p className="font-bold w-14">size</p>
+                  <p>{item.size.length === 0 ? 'Unisex' : item.size}</p>
+                </div>
+                <div className="flex gap-3 font-extralight text-xs py-1">
+                  <p className="font-bold w-14">Total</p>
+                  <p>IDR {item.price.toLocaleString()}</p>
+                </div>
+                <div className="flex gap-3 font-extralight text-xs py-1">
+                  <p className="font-bold w-14">Qty</p>
+                  <p> {item.qty}</p>
                 </div>
               </div>
             </div>
