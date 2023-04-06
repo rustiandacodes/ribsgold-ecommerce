@@ -73,12 +73,8 @@ const AddToChart = (props) => {
                     handleRemoveOneOfTheItem(item.name)
                   }}
                 />
-                <img
-                  src={item.img[0]}
-                  alt={item.name}
-                  className="rounded-lg w-[45%]"
-                />
-                <div className="capitalize overflow-hidden w-[55]">
+                <img src={item.img[0]} alt={item.name} className="rounded-lg" />
+                <div className="capitalize overflow-hidden w-[55%]">
                   <p className="font-bold truncate mb-2">{item.name}</p>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Variant</p>
@@ -88,7 +84,9 @@ const AddToChart = (props) => {
                   </div>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">size</p>
-                    <p>{item.size.length === 0 ? 'Unisex' : item.size}</p>
+                    <p className="uppercase">
+                      {item.size.length === 0 ? 'Unisex' : item.size}
+                    </p>
                   </div>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Total</p>

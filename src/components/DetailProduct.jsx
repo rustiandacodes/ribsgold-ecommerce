@@ -113,7 +113,7 @@ const DetailProduct = (props) => {
                       : item.size.map((item, index) => {
                           return (
                             <p
-                              className={`md:text-sm capitalize text-xs py-1 px-3 rounded-md cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                              className={`md:text-sm uppercase text-xs py-1 px-3 rounded-md cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
                                 size === item
                                   ? 'text-yellow-400 border-yellow-400'
                                   : 'border-black'
