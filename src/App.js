@@ -1,15 +1,29 @@
 import Router from './router/Router'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import AddToChart from './components/AddToChart'
 
-function App() {
+import { connect } from 'react-redux'
+
+const App = (props) => {
   return (
-    <div>
+    <div className="relative">
       <Navbar />
-      <Router />
-      <Footer />
+      <AddToChart />
+      <div
+        className={`${props.showAddToChart === true ? 'opacity-[50%]' : ''}`}
+      >
+        <Router />
+        <Footer />
+      </div>
     </div>
   )
 }
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    showAddToChart: state.showAddToChart,
+  }
+}
+
+export default connect(mapStateToProps)(App)
