@@ -31,7 +31,7 @@ const AllProducts = (props) => {
               parameter.category === undefined
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products')
             }}
@@ -43,7 +43,7 @@ const AllProducts = (props) => {
               parameter.category === 't-shirt'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/t-shirt')
             }}
@@ -55,7 +55,7 @@ const AllProducts = (props) => {
               parameter.category === 'jacket-sweater'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/jacket-sweater')
             }}
@@ -67,7 +67,7 @@ const AllProducts = (props) => {
               parameter.category === 'oversize'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/oversize')
             }}
@@ -79,7 +79,7 @@ const AllProducts = (props) => {
               parameter.category === 'pants'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/pants')
             }}
@@ -91,7 +91,7 @@ const AllProducts = (props) => {
               parameter.category === 'accessories'
                 ? 'bg-yellow-400 border-yellow-400'
                 : ' border-black'
-            } border-[1.8px] font-medium p-2 cursor-pointer rounded-lg`}
+            } border-[1.8px] font-semibold p-2 cursor-pointer rounded-lg`}
             onClick={() => {
               navigate('/products/accessories')
             }}

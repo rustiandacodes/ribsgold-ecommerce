@@ -17,8 +17,8 @@ const Categories = () => {
       <hr className="mb-8 mt-3 mx-auto w-32 border-2 rounded-full border-yellow-400" />
       <div className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3  ">
         <div
-          className="md:w-[40%] overflow-hidden group relative cursor-pointer"
-          onClick={() => navigate('/products/t-shirts')}
+          className="md:w-[40%] overflow-hidden group relative cursor-pointer rounded-xl"
+          onClick={() => navigate('/products/t-shirt')}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">T-shirt</p>
@@ -31,7 +31,7 @@ const Categories = () => {
           />
         </div>
         <div
-          className="md:w-[60%] overflow-hidden group relative cursor-pointer"
+          className="md:w-[60%] overflow-hidden group relative cursor-pointer rounded-xl"
           onClick={() => navigate('/products/pants')}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
@@ -47,7 +47,7 @@ const Categories = () => {
       </div>
       <div className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3 cursor-pointer ">
         <div
-          className="md:w-[60%] overflow-hidden group relative"
+          className="md:w-[60%] overflow-hidden group relative rounded-xl"
           onClick={() => navigate('/products/jacket-sweater')}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
@@ -62,25 +62,25 @@ const Categories = () => {
           />
         </div>
         <div
-          className="md:w-[40%] overflow-hidden group relative cursor-pointer"
+          className="md:w-[40%] overflow-hidden group relative cursor-pointer rounded-xl"
           onClick={() => navigate('/products/oversize')}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">Oversize</p>
           </span>
-          <div className="bg-gradient-to-r from-black via-slate-900 to-black  absolute z-10 top-0 left-0 right-0 w-full h-full opacity-60"></div>
+          <div className="bg-gradient-to-r from-black via-slate-900 to-black  absolute z-10 top-0 left-0 right-0 w-full h-full opacity-60 "></div>
           <img
             src={oversized}
-            className=" scale-125 w-full group-hover:grayscale duration-100 group-hover:transition group-hover:scale-150"
+            className=" scale-125 w-full group-hover:grayscale duration-100 group-hover:transition group-hover:scale-150 rounded-xl"
             alt="tshirt"
           />
         </div>
       </div>
       <div
-        className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3 cursor-pointer "
+        className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3 cursor-pointer rounded-xl"
         onClick={() => navigate('/products/accessories')}
       >
-        <div className="md:w-full md:h-72 overflow-hidden group relative cursor-pointer">
+        <div className="md:w-full md:h-72 overflow-hidden group relative cursor-pointer rounded-xl">
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">Accessories</p>
           </span>

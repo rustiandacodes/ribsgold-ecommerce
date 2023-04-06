@@ -58,7 +58,7 @@ const AddToChart = (props) => {
             }}
           />
         </div>
-        <div className="md:h-96 h-[40rem] p-2 px-5 overflow-scroll">
+        <div className="h-96 p-2 px-5 overflow-scroll">
           {props.addToChartProducts.map((item, index) => {
             return (
               <div
@@ -74,7 +74,7 @@ const AddToChart = (props) => {
                   }}
                 />
                 <img src={item.img[0]} alt={item.name} className="rounded-lg" />
-                <div className="capitalize">
+                <div className="capitalize overflow-hidden">
                   <p className="font-bold truncate mb-2">{item.name}</p>
                   <div className="flex gap-3 font-extralight text-xs py-1">
                     <p className="font-bold w-14">Variant</p>
@@ -101,12 +101,12 @@ const AddToChart = (props) => {
         </div>
         <div className="px-8">
           <hr className="border-2 my-5 bg-slate-300 border-dashed" />
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-5">
-              <p className="font-bold text-xl">Subtotal :</p>
+          <div className="flex flex-col md:flex-row justify-between md:items-center">
+            <div className="flex items-center gap-5 md:mb-0 mb-3">
+              <p className="font-bold text-lg md:text-xl">Subtotal :</p>
               <p>IDR {subsTotal().toLocaleString()}</p>
             </div>
-            <button className="py-1 px-3 bg-yellow-400 font-semibold rounded-lg">
+            <button className="py-1 px-3 bg-yellow-400 font-semibold rounded-lg text-lg">
               Checkout
             </button>
           </div>

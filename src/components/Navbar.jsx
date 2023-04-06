@@ -31,7 +31,7 @@ const Navbar = (props) => {
           className="uppercase text-xl font-black cursor-pointer"
           onClick={() => navigate('/')}
         >
-          RIBSGOLD
+          RIBS<span className="text-yellow-500">GOLD</span>
         </span>
         <div
           className={`${
@@ -79,7 +79,7 @@ const Navbar = (props) => {
                   navigate('/about')
                 }}
               >
-                About
+                About Us
               </span>
             </li>
             <li>
@@ -92,7 +92,7 @@ const Navbar = (props) => {
                   navigate('/contact')
                 }}
               >
-                Contact
+                Contacts
               </span>
             </li>
           </ul>

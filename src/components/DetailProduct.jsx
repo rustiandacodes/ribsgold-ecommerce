@@ -74,7 +74,7 @@ const DetailProduct = (props) => {
                 </h2>
                 <div className="py-2 flex gap-2">
                   <p className="font-bold text-sm lg:text-lg w-[30%]">Price </p>
-                  <p className="font-semibold md:text-xl w-[70%] text-slate-900">
+                  <p className="md:text-xl w-[70%] text-slate-900">
                     IDR {item.price.toLocaleString()}
                   </p>
                 </div>
@@ -133,18 +133,18 @@ const DetailProduct = (props) => {
                   <p className="font-bold text-sm lg:text-lg w-[30%]">Qty </p>
                   <div className="flex gap-2 w-[70%]">
                     <span
-                      className="w-5 text-center bg-yellow-400 cursor-pointer"
+                      className="w-5 text-center bg-yellow-400 cursor-pointer rounded-md"
                       onClick={() => handleMinus()}
                     >
                       -
                     </span>
                     <input
-                      className="outline outline-1 w-10 text-center"
+                      className="outline outline-1 w-10 text-center rounded-md"
                       value={counter}
                       type="text"
                     />
                     <span
-                      className="w-5 text-center  bg-yellow-400 cursor-pointer"
+                      className="w-5 text-center  bg-yellow-400 cursor-pointer rounded-md"
                       onClick={() => handlePlus()}
                     >
                       +
@@ -152,9 +152,11 @@ const DetailProduct = (props) => {
                   </div>
                 </div>
                 <div className="flex gap-3 mt-8">
-                  <button className="w-1/2 py-2 bg-yellow-400">Buy Now</button>
+                  <button className="w-1/2 py-2 bg-yellow-400 rounded-lg font-semibold">
+                    Buy Now
+                  </button>
                   <button
-                    className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400"
+                    className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold"
                     onClick={() => {
                       // props.handleAddToChart(props.showProducts[0])
                       setAddToChartData(

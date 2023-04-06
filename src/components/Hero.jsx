@@ -13,10 +13,15 @@ const Hero = () => {
           </h1>
           <p className="text-slate-400 mb-8 mt-5 2xl italic">
             "Your fashion style is your personal canvas, where you paint your
-            unique identity and showcase it to the world with every stitch and"
-            seam.
+            unique identity and showcase it to the world with every stitch and
+            seam."
           </p>
-          <NavLink className={'uppercase bg-yellow-400 p-3'} to={'/products'}>
+          <NavLink
+            className={
+              'uppercase font-semibold shadow-md bg-yellow-400 hover:bg-yellow-500 p-3 rounded-lg'
+            }
+            to={'/products'}
+          >
             shop now
           </NavLink>
           <div className="mt-10 hidden lg:block">
@@ -38,18 +43,6 @@ const Hero = () => {
           <img src={model} className="scale-125 md:scale-90" alt="model" />
         </div>
       </div>
-      {/* <div className="absolute -bottom-32">
-        <div className="flex gap-8">
-          <img src={fest1} className="w-28 grayscale" alt="fest-logo" />
-          <img src={fest2} className="w-28 grayscale" alt="fest-logo" />
-          <img src={fest3} className="w-28 grayscale" alt="fest-logo" />
-        </div>
-        <p className="w-1/2 text-xs mt-3 text-slate-400 font-extralight">
-          What you wear is how you present yourself to the world, especially
-          today, when human contacts are so quick. Fashion is instant language I
-          firmly believe that with the right footwear one can rule the world.
-        </p>
-      </div> */}
       <div className="lg:hidden mt-16">
         <div className="flex justify-center">
           <img src={fest3} className="w-24 grayscale" alt="fest-logo" />
