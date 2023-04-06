@@ -5,6 +5,7 @@ import { useState } from 'react'
 const DetailProduct = (props) => {
   const [currentIndexImg, setCurrentIndexImg] = useState()
   const [variant, setVariant] = useState('')
+  const [size, setSize] = useState('')
   const [counter, setCounter] = useState(1)
 
   const handlePlus = () => {
@@ -22,6 +23,7 @@ const DetailProduct = (props) => {
       img: img,
       qty: counter,
       variant: variant,
+      size: size,
     }
     props.handleAddToChart(data)
   }
@@ -86,22 +88,42 @@ const DetailProduct = (props) => {
                       : item.variant.map((item, index) => {
                           return (
                             <p
-                              className={`md:text-sm capitalize text-xs p-1 cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                              className={`md:text-sm capitalize text-xs py-1 px-2 cursor-pointer border-[1.5px] truncate rounded-md hover:text-yellow-400 hover:border-yellow-400 ${
                                 variant === item.color
                                   ? 'text-yellow-400 border-yellow-400'
                                   : 'border-black'
                               }`}
                               key={index}
-                              onMouseEnter={() => {
-                                setCurrentIndexImg(item.image_path)
-                                setVariant(item.color)
-                              }}
                               onClick={() => {
                                 setCurrentIndexImg(item.image_path)
                                 setVariant(item.color)
                               }}
                             >
                               {item.color}
+                            </p>
+                          )
+                        })}
+                  </div>
+                </div>
+                <div className="py-2 flex gap-2 my-3">
+                  <p className="font-bold text-sm lg:text-lg w-[30%]">Size</p>
+                  <div className="flex flex-wrap gap-2 w-[70%]">
+                    {item.size.length === 0
+                      ? 'Unisex'
+                      : item.size.map((item, index) => {
+                          return (
+                            <p
+                              className={`md:text-sm capitalize text-xs py-1 px-3 rounded-md cursor-pointer border-[1.5px] truncate  hover:text-yellow-400 hover:border-yellow-400 ${
+                                size === item
+                                  ? 'text-yellow-400 border-yellow-400'
+                                  : 'border-black'
+                              }`}
+                              key={index}
+                              onClick={() => {
+                                setSize(item)
+                              }}
+                            >
+                              {item}
                             </p>
                           )
                         })}
