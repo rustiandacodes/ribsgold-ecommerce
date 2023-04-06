@@ -23,6 +23,11 @@ const rootReducer = (state = globalState, action) => {
         ...state,
         showAddToChart: action.results,
       }
+    case ActionType.UPDATE_ADD_TO_CHART:
+      return {
+        ...state,
+        addToChartProducts: action.results,
+      }
     default:
       return state
   }

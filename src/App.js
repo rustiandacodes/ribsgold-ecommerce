@@ -6,7 +6,6 @@ import AddToChart from './components/AddToChart'
 import { connect } from 'react-redux'
 
 const App = (props) => {
-  console.log(props.showAddToChart)
   return (
     <div className="relative">
       <Navbar />

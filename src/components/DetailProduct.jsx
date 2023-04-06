@@ -15,6 +15,17 @@ const DetailProduct = (props) => {
     counter > 1 ? setCounter(counter - 1) : setCounter(1)
   }
 
+  const setAddToChartData = (name, img, price) => {
+    const data = {
+      name: name,
+      price: price,
+      img: img,
+      qty: counter,
+      variant: variant,
+    }
+    props.handleAddToChart(data)
+  }
+
   return (
     <section className="py-10 px-8 lg:px-0">
       <div className="container mx-auto">
@@ -123,7 +134,12 @@ const DetailProduct = (props) => {
                   <button
                     className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400"
                     onClick={() => {
-                      props.handleAddToChart(props.showProducts[0])
+                      // props.handleAddToChart(props.showProducts[0])
+                      setAddToChartData(
+                        props.showProducts[0].name,
+                        props.showProducts[0].image,
+                        props.showProducts[0].price,
+                      )
                     }}
                   >
                     Add To Chart
