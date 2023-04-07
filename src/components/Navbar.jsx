@@ -2,12 +2,10 @@ import { ShoppingCart } from 'react-feather'
 import { Search } from 'react-feather'
 import { Menu } from 'react-feather'
 import { X } from 'react-feather'
-
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
-
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
@@ -22,10 +20,6 @@ const Navbar = (props) => {
       ? props.handleShowAddToChart(true)
       : props.handleShowAddToChart(false)
   }
-
-  useEffect(() => {
-    props.handleChangePage('home')
-  }, [])
 
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
