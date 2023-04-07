@@ -3,7 +3,10 @@ import fest1 from '../assets/fest1.png'
 import fest2 from '../assets/fest2.png'
 import fest3 from '../assets/fest3.png'
 import { NavLink } from 'react-router-dom'
-const Hero = () => {
+import { connect } from 'react-redux'
+import ActionType from '../redux/globalActionType'
+
+const Hero = (props) => {
   return (
     <div className="container mx-auto py-10 px-10 lg:px-0">
       <div className="flex-row md:flex md:items-center md:justify-between">
@@ -21,6 +24,9 @@ const Hero = () => {
               'uppercase font-semibold shadow-md bg-yellow-400 hover:bg-yellow-500 p-3 rounded-lg'
             }
             to={'/products'}
+            onClick={() => {
+              props.handleChangePage('products')
+            }}
           >
             shop now
           </NavLink>
@@ -58,4 +64,17 @@ const Hero = () => {
     </div>
   )
 }
-export default Hero
+const mapStateToProps = (state) => {
+  return {
+    pageNow: state.pageNow,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChangePage: (items) =>
+      dispatch({ type: ActionType.CHANGE_PAGE, results: items }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Hero)

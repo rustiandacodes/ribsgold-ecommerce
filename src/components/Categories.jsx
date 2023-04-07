@@ -4,9 +4,12 @@ import jacket from '../assets/146353b8c9954b0f96daf01d85f55890.jpeg'
 import oversized from '../assets/id-11134201-23030-rtgv8xxmr9nv9d.jpeg'
 import accessories from '../assets/212468a784a0228b8ff6fb3288f0006e.jpeg'
 
+import { connect } from 'react-redux'
+import ActionType from '../redux/globalActionType'
+
 import { useNavigate } from 'react-router-dom'
 
-const Categories = () => {
+const Categories = (props) => {
   const navigate = useNavigate()
 
   return (
@@ -18,7 +21,10 @@ const Categories = () => {
       <div className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3  ">
         <div
           className="md:w-[40%] overflow-hidden group relative cursor-pointer rounded-xl"
-          onClick={() => navigate('/products/t-shirt')}
+          onClick={() => {
+            props.handleChangePage('products')
+            navigate('/products/t-shirt')
+          }}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">T-shirt</p>
@@ -32,7 +38,10 @@ const Categories = () => {
         </div>
         <div
           className="md:w-[60%] overflow-hidden group relative cursor-pointer rounded-xl"
-          onClick={() => navigate('/products/pants')}
+          onClick={() => {
+            props.handleChangePage('products')
+            navigate('/products/pants')
+          }}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">Pants</p>
@@ -48,7 +57,10 @@ const Categories = () => {
       <div className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3 cursor-pointer ">
         <div
           className="md:w-[60%] overflow-hidden group relative rounded-xl"
-          onClick={() => navigate('/products/jacket-sweater')}
+          onClick={() => {
+            props.handleChangePage('products')
+            navigate('/products/jacket-sweater')
+          }}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">Jacket/Sweater</p>
@@ -63,7 +75,10 @@ const Categories = () => {
         </div>
         <div
           className="md:w-[40%] overflow-hidden group relative cursor-pointer rounded-xl"
-          onClick={() => navigate('/products/oversize')}
+          onClick={() => {
+            props.handleChangePage('products')
+            navigate('/products/oversize')
+          }}
         >
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
             <p className="text-center font-black">Oversize</p>
@@ -78,7 +93,10 @@ const Categories = () => {
       </div>
       <div
         className="flex gap-3 flex-col md:flex-row md:h-72 md:overflow-hidden mb-3 cursor-pointer rounded-xl"
-        onClick={() => navigate('/products/accessories')}
+        onClick={() => {
+          props.handleChangePage('products')
+          navigate('/products/accessories')
+        }}
       >
         <div className="md:w-full md:h-72 overflow-hidden group relative cursor-pointer rounded-xl">
           <span className="absolute top-1/2 left-0 right-0 text-white text-2xl z-20">
@@ -96,4 +114,17 @@ const Categories = () => {
   )
 }
 
-export default Categories
+const mapStateToProps = (state) => {
+  return {
+    pageNow: state.pageNow,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    handleChangePage: (items) =>
+      dispatch({ type: ActionType.CHANGE_PAGE, results: items }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories)

@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { ShoppingCart } from 'react-feather'
 import { Search } from 'react-feather'
 import { Menu } from 'react-feather'
@@ -7,12 +6,12 @@ import { X } from 'react-feather'
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
 
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
   const navigate = useNavigate()
-  const [navChoice, setNavChoice] = useState('/')
 
   const handleHamburger = () => {
     hamburger === true ? setHamburger(false) : setHamburger(true)
@@ -29,7 +28,10 @@ const Navbar = (props) => {
       <div className="container mx-auto flex justify-between items-center py-5">
         <span
           className="uppercase text-xl font-black cursor-pointer"
-          onClick={() => navigate('/')}
+          onClick={() => {
+            props.handleChangePage('/')
+            navigate('/')
+          }}
         >
           RIBS<span className="text-yellow-500">GOLD</span>
         </span>
@@ -46,10 +48,10 @@ const Navbar = (props) => {
             <li>
               <span
                 className={`${
-                  navChoice === '/' ? 'active' : ''
+                  props.pageNow === '/' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1 `}
                 onClick={() => {
-                  setNavChoice('/')
+                  props.handleChangePage('/')
                   navigate('/')
                 }}
               >
@@ -59,10 +61,10 @@ const Navbar = (props) => {
             <li>
               <span
                 className={`${
-                  navChoice === 'products' ? 'active' : ''
+                  props.pageNow === 'products' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1`}
                 onClick={() => {
-                  setNavChoice('products')
+                  props.handleChangePage('products')
                   navigate('/products')
                 }}
               >
@@ -72,10 +74,10 @@ const Navbar = (props) => {
             <li>
               <span
                 className={`${
-                  navChoice === 'about' ? 'active' : ''
+                  props.pageNow === 'about' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1`}
                 onClick={() => {
-                  setNavChoice('about')
+                  props.handleChangePage('about')
                   navigate('/about')
                 }}
               >
@@ -85,10 +87,10 @@ const Navbar = (props) => {
             <li>
               <span
                 className={`${
-                  navChoice === 'contact' ? 'active' : ''
+                  props.pageNow === 'contact' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1`}
                 onClick={() => {
-                  setNavChoice('contact')
+                  props.handleChangePage('contact')
                   navigate('/contact')
                 }}
               >
@@ -136,12 +138,15 @@ const mapStateToProps = (state) => {
   return {
     addToChartProducts: state.addToChartProducts,
     showAddToChart: state.showAddToChart,
+    pageNow: state.pageNow,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
     handleShowAddToChart: (value) =>
       dispatch({ type: ActionType.SHOW_ADD_TO_CHART, results: value }),
+    handleChangePage: (items) =>
+      dispatch({ type: ActionType.CHANGE_PAGE, results: items }),
   }
 }
 
