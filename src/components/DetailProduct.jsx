@@ -172,13 +172,11 @@ const DetailProduct = (props) => {
                 <div>
                   <p className="py-5 mt-10">Description :</p>
                   <p className="font-extralight">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                    quaerat praesentium qui earum officiis, nulla maxime ullam
-                    laborum, veniam, recusandae aperiam tempore unde?
-                    Repellendus dolore architecto praesentium commodi nemo
-                    maxime provident alias sint! Sint, nisi explicabo maiores
-                    dignissimos, nesciunt unde consectetur dolor laboriosam
-                    sequi error voluptatum assumenda dolorum? Minima, quia!
+                    We gave range of high-quality garments that are crafted from
+                    soft, breathable fabrics, ensuring maximum comfort
+                    throughout the day. Our collection includes casual t-shirts,
+                    comfortable pants, and stylish hoodies - all designed to
+                    help you look and feel your best, no matter where you go.
                   </p>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import { shuffleProducts } from '../service'
-import { ShoppingBag } from 'react-feather'
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
+import { AiFillStar } from 'react-icons/ai'
 
 const AllProducts = (props) => {
   const parameter = useParams()
@@ -131,7 +131,10 @@ const AllProducts = (props) => {
                           IDR {(item.price + 54000).toLocaleString()}
                         </p>
                       </div>
-                      <ShoppingBag size={24} color="#334155" />
+                      <div className="flex items-center gap-1 text-slate-700">
+                        <AiFillStar className="text-yellow-400 text-xl" />
+                        <p>4.5</p>
+                      </div>
                     </div>
                   </div>
                 </div>

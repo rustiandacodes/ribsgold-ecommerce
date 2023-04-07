@@ -1,6 +1,6 @@
 import Slider from 'react-slick'
 import { products } from '../service'
-import { ShoppingBag } from 'react-feather'
+import { AiFillStar } from 'react-icons/ai'
 import { useNavigate } from 'react-router'
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
@@ -93,7 +93,10 @@ const Popular = (props) => {
                         IDR {(item.price + 54000).toLocaleString()}
                       </p>
                     </div>
-                    <ShoppingBag size={24} color="#334155" />
+                    <div className="flex items-center gap-1 text-slate-700">
+                      <AiFillStar className="text-yellow-400 text-xl" />
+                      <p>4.5</p>
+                    </div>
                   </div>
                 </div>
               </div>
