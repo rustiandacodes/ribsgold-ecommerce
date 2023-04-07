@@ -11,6 +11,10 @@ const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
   const navigate = useNavigate()
 
+  const scrollToTop = () => {
+    return document.body.scrollIntoView()
+  }
+
   const handleHamburger = () => {
     hamburger === true ? setHamburger(false) : setHamburger(true)
   }
@@ -28,6 +32,7 @@ const Navbar = (props) => {
           className="uppercase text-xl font-black cursor-pointer"
           onClick={() => {
             props.handleChangePage('home')
+            scrollToTop()
             navigate('/')
           }}
         >
@@ -50,6 +55,7 @@ const Navbar = (props) => {
                 } hover:opacity-60 cursor-pointer uppercase pb-1 `}
                 onClick={() => {
                   props.handleChangePage('home')
+                  scrollToTop()
                   navigate('/')
                 }}
               >
@@ -63,6 +69,7 @@ const Navbar = (props) => {
                 } hover:opacity-60 cursor-pointer uppercase pb-1`}
                 onClick={() => {
                   props.handleChangePage('products')
+                  scrollToTop()
                   navigate('/products')
                 }}
               >
@@ -76,6 +83,7 @@ const Navbar = (props) => {
                 } hover:opacity-60 cursor-pointer uppercase pb-1`}
                 onClick={() => {
                   props.handleChangePage('about')
+                  scrollToTop()
                   navigate('/about')
                 }}
               >
