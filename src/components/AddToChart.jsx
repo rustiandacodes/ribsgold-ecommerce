@@ -5,9 +5,7 @@ import { Trash2 } from 'react-feather'
 import shopingIlustration from '../assets/shopping ilustration.svg'
 
 const AddToChart = (props) => {
-  const getAddtoChartPrice = props.addToChartProducts.map(
-    (item) => item.price * item.qty,
-  )
+  const getAddtoChartPrice = props.addToChartProducts.map((item) => item.price)
 
   const subsTotal = () => {
     let total = 0
