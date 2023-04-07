@@ -72,6 +72,7 @@ const Popular = (props) => {
               key={index}
               className="w-1/4 cursor-pointer py-6 p-3"
               onClick={() => {
+                props.handleChangePage('products')
                 props.handleShowProduct([item])
                 navigate('/detail')
               }}
@@ -118,6 +119,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleShowProduct: (items) =>
       dispatch({ type: ActionType.CHANGE_SHOW_PRODUCT, results: items }),
+    handleChangePage: (items) =>
+      dispatch({ type: ActionType.CHANGE_PAGE, results: items }),
   }
 }
 
