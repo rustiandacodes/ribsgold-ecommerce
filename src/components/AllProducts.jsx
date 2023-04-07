@@ -11,6 +11,10 @@ const AllProducts = (props) => {
   const navigate = useNavigate()
   const [productByCategory, setProductByCategory] = useState([])
 
+  const scrollToTop = () => {
+    return document.body.scrollIntoView()
+  }
+
   useEffect(() => {
     const filterProducts = (key) => {
       const filter = key
@@ -106,9 +110,10 @@ const AllProducts = (props) => {
             return (
               <div
                 key={index}
-                className="w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer py-6 p-3"
+                className="w-1/2 md:w-1/3 lg:w-1/4 cursor-pointer py-3 p-3"
                 onClick={() => {
                   props.handleShowProduct([item])
+                  scrollToTop()
                   navigate('/detail')
                 }}
               >
@@ -132,8 +137,8 @@ const AllProducts = (props) => {
                         </p>
                       </div>
                       <div className="flex items-center gap-1 text-slate-700">
-                        <AiFillStar className="text-yellow-400 text-xl" />
-                        <p>4.5</p>
+                        <AiFillStar className="text-yellow-400 text-lg" />
+                        <p className="text-xs md:text-sm">4.5</p>
                       </div>
                     </div>
                   </div>
