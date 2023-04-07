@@ -55,7 +55,7 @@ const Navbar = (props) => {
                   props.pageNow === 'home' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1 `}
                 onClick={() => {
-                  props.handleChangePage('/')
+                  props.handleChangePage('home')
                   navigate('/')
                 }}
               >
