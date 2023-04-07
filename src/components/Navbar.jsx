@@ -84,19 +84,6 @@ const Navbar = (props) => {
                 About Us
               </span>
             </li>
-            <li>
-              <span
-                className={`${
-                  props.pageNow === 'contact' ? 'active' : ''
-                } hover:opacity-60 cursor-pointer uppercase pb-1`}
-                onClick={() => {
-                  props.handleChangePage('contact')
-                  navigate('/contact')
-                }}
-              >
-                Contacts
-              </span>
-            </li>
           </ul>
         </div>
         <div className="flex gap-5">
