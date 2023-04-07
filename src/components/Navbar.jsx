@@ -25,7 +25,7 @@ const Navbar = (props) => {
 
   useEffect(() => {
     props.handleChangePage('home')
-  })
+  }, [])
 
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
