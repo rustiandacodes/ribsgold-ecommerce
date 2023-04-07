@@ -4,7 +4,7 @@ const globalState = {
   showProducts: [],
   addToChartProducts: [],
   showAddToChart: false,
-  pageNow: '',
+  pageNow: 'home',
 }
 
 const rootReducer = (state = globalState, action) => {

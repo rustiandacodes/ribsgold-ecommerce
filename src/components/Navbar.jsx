@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
 
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const Navbar = (props) => {
   const [hamburger, setHamburger] = useState(true)
@@ -23,13 +23,17 @@ const Navbar = (props) => {
       : props.handleShowAddToChart(false)
   }
 
+  useEffect(() => {
+    props.handleChangePage('home')
+  })
+
   return (
     <nav className="shadow-lg px-8 fixed w-full bg-white z-[99]">
       <div className="container mx-auto flex justify-between items-center py-5">
         <span
           className="uppercase text-xl font-black cursor-pointer"
           onClick={() => {
-            props.handleChangePage('/')
+            props.handleChangePage('home')
             navigate('/')
           }}
         >
@@ -48,7 +52,7 @@ const Navbar = (props) => {
             <li>
               <span
                 className={`${
-                  props.pageNow === '/' ? 'active' : ''
+                  props.pageNow === 'home' ? 'active' : ''
                 } hover:opacity-60 cursor-pointer uppercase pb-1 `}
                 onClick={() => {
                   props.handleChangePage('/')
