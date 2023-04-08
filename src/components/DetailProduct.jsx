@@ -8,6 +8,7 @@ const DetailProduct = (props) => {
   const [size, setSize] = useState('')
   const [counter, setCounter] = useState(1)
   const [alert, setAlart] = useState('')
+  const [showAlart, setShowAlart] = useState(false)
 
   const handlePlus = () => {
     setCounter(counter + 1)
@@ -47,15 +48,24 @@ const DetailProduct = (props) => {
       console.log('⚠️ please select size product')
     } else {
       setAlart('✅ your product succesfully added')
-      console.log('✅ your product succesfully added')
       props.handleAddToChart(data)
     }
+
+    setShowAlart(true)
+    setTimeout(() => {
+      setShowAlart(false)
+    }, 5000)
   }
+  console.log(showAlart)
 
   return (
     <section className="py-8 md:py-10 md:mt-5 bg-slate-100 ">
-      <div className="text-center fixed -translate-y-20 left-0 w-full">
-        <p className="mx-auto w-80 rounded-lg py-2 shadow-lg font-semibold bg-yellow-300">
+      <div className="text-center fixed left-0 w-full">
+        <p
+          className={`${
+            showAlart === true ? 'block' : 'hidden'
+          } mx-auto w-96 rounded-lg py-2 ease-in-out translate-y-8 md:translate-y-0 shadow-lg font-semibold bg-yellow-200`}
+        >
           {alert}
         </p>
       </div>
