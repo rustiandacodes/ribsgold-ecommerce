@@ -36,7 +36,6 @@ const DetailProduct = (props) => {
       size: size,
     }
 
-    console.log(variant)
     if (data.variant === '' && data.size === '') {
       setAlart('⚠️ please select variant or size product')
       console.log(alert)
@@ -54,8 +53,13 @@ const DetailProduct = (props) => {
   }
 
   return (
-    <section className="py-8 md:py-10 md:mt-5 bg-slate-100">
-      <div className="container py-8 mx-auto rounded-xl px-8 lg:px-0 bg-white">
+    <section className="py-8 md:py-10 md:mt-5 bg-slate-100 ">
+      <div className="text-center fixed -translate-y-20 left-0 w-full">
+        <p className="mx-auto w-80 rounded-lg py-2 shadow-lg font-semibold bg-yellow-300">
+          {alert}
+        </p>
+      </div>
+      <div className="container py-8 mx-auto rounded-xl  px-8 lg:px-0 bg-white">
         {props.showProducts.map((item, index) => {
           return (
             <div
