@@ -59,6 +59,11 @@ const Popular = (props) => {
       },
     ],
   }
+
+  const scrollToTop = () => {
+    return document.body.scrollIntoView()
+  }
+
   return (
     <div className="container mx-auto py-10 px-10 lg:px-0">
       <h2 className="text-2xl md:text-4xl font-bold text-center">
@@ -73,6 +78,7 @@ const Popular = (props) => {
               className="w-1/4 cursor-pointer py-6 p-3"
               onClick={() => {
                 props.handleChangePage('products')
+                scrollToTop()
                 props.handleShowProduct([item])
                 navigate('/detail')
               }}

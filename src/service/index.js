@@ -1,17 +1,15 @@
-import handbagThumb1 from '../assets/34db4052f39a43fc2406b0e46df65cfa.jpeg'
-import handbagThumb2 from '../assets/cf8ba70772ac7616b11835aa77b47fe4.jpeg'
-import handbagThumb3 from '../assets/cffb530602e96062925f0a1690151522.jpeg'
 import sunglassesThumb1 from '../assets/1b3d2318161de3fe3f16dd3d2e5b673e.jpeg'
 import sunglassesThumb2 from '../assets/212468a784a0228b8ff6fb3288f0006e.jpeg'
 import sunglassesThumb3 from '../assets/0ed71e4126d827df096727f06b4610af.jpeg'
+import sunglassesThumb4 from '../assets/b0c09ed1717bc8827c796eb042e5e665.jpeg'
+import sunglassesThumb5 from '../assets/5c9ee76e83e5395093798550bba3d20f.jpeg'
 import chainThumb1 from '../assets/c5996d2e9a4c5684b1397d920b0f4715.jpeg'
 import chainThumb2 from '../assets/fcadf2ed77d2a690b622f54d41fcf5f8.jpeg'
+import chainThumb3 from '../assets/9ba44c3b823e914fe30ba82121e9ad31.jpeg'
+import chainThumb4 from '../assets/17c9e25e4ce7b7cd6542dc4096ebd13a.jpeg'
 import ringThumb1 from '../assets/2ba1069cd2060fb7203152fb736d3ba8.jpeg'
 import ringThumb2 from '../assets/2c19389d74fe30cf8ca82771a68b043a.jpeg'
 import ringThumb3 from '../assets/456c988bc9e6d32fe9ea97e983696fdd.jpeg'
-import waitsbagThumb1 from '../assets/bc60f9695e4584f81c00e65b97eba01c.jpeg'
-import waitsbagThumb2 from '../assets/f5a619d647d1894936d6e7b44ea7f839.jpeg'
-import waitsbagThumb3 from '../assets/8fe41d204ad68b0fd97d3c34aa149a74.jpeg'
 import beltThumb1 from '../assets/c8f110cae3311d20a41384c1f6e4834c.jpeg'
 import beltThumb2 from '../assets/69f3e8312f1c3e7f1d35243abe229194.jpeg'
 import beltThumb3 from '../assets/8df8a7721c89d0eb97f3e0106b762210.jpeg'
@@ -21,9 +19,6 @@ import ankleThumb3 from '../assets/14c04e6d511712f46497f84182246664.jpeg'
 import ankleThumb4 from '../assets/5038156aae3debf6613a0635863371ba.jpeg'
 import ankleThumb5 from '../assets/eb90e6c88dfd3fd0a94d5a02a3f6fc47.jpeg'
 import ankleThumb6 from '../assets/22d132f15aa286a4d3b30b8e6db87cf7.jpeg'
-import shortChinoThumb1 from '../assets/22d132f15aa286a4d3b30b8e6db87cf7.jpeg'
-import shortChinoThumb2 from '../assets/22d132f15aa286a4d3b30b8e6db87cf7.jpeg'
-import shortChinoThumb3 from '../assets/22d132f15aa286a4d3b30b8e6db87cf7.jpeg'
 import shortChinoThumb4 from '../assets/51333262fabe6f312635704a9d9c072f.jpeg'
 import shortChinoThumb5 from '../assets/b1df750ebba2460eda678834381815c0.jpeg'
 import shortChinoThumb6 from '../assets/dd092ef99b7516059d5ff8186a5db11a.jpeg'
@@ -148,18 +143,13 @@ const shuffle = (array) => {
 export const products = [
   // accesssories product
   {
-    name: 'hand bag',
-    category: 'accessories',
-    price: 89000,
-    variant: [],
-    size: [],
-    image: [handbagThumb1, handbagThumb2, handbagThumb3],
-  },
-  {
     name: 'basic sunglasses',
     category: 'accessories',
     price: 49000,
-    variant: [{ color: 'vintage transparent' }, { color: 'retro black' }],
+    variant: [
+      { color: 'vintage transparent', image_path: sunglassesThumb4 },
+      { color: 'retro black', image_path: sunglassesThumb5 },
+    ],
     size: [],
     image: [sunglassesThumb1, sunglassesThumb2, sunglassesThumb3],
   },
@@ -167,7 +157,10 @@ export const products = [
     name: 'stainless premium chain',
     category: 'accessories',
     price: 49000,
-    variant: [{ color: 'silver' }, { color: 'gold' }],
+    variant: [
+      { color: 'silver', image_path: chainThumb3 },
+      { color: 'gold', image_path: chainThumb4 },
+    ],
     size: [],
     image: [chainThumb1, chainThumb2],
   },
@@ -179,14 +172,7 @@ export const products = [
     size: [],
     image: [ringThumb1, ringThumb2, ringThumb3],
   },
-  {
-    name: 'waits bag',
-    category: 'accessories',
-    price: 69000,
-    variant: ['black', 'navy', 'dark green', 'army'],
-    size: [],
-    image: [waitsbagThumb1, waitsbagThumb2, waitsbagThumb3],
-  },
+
   {
     name: 'belt leather',
     category: 'accessories',
@@ -215,9 +201,9 @@ export const products = [
     category: 'pants',
     price: 94500,
     variant: [
-      { color: 'cream', image_path: shortChinoThumb1 },
-      { color: 'grey', image_path: shortChinoThumb2 },
-      { color: 'brown', image_path: shortChinoThumb3 },
+      { color: 'cream', image_path: shortChinoThumb4 },
+      { color: 'grey', image_path: shortChinoThumb5 },
+      { color: 'brown', image_path: shortChinoThumb6 },
     ],
     size: [28, 30, 32, 34, 36, 38],
     image: [shortChinoThumb4, shortChinoThumb5, shortChinoThumb6],
