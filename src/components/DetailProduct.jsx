@@ -8,6 +8,7 @@ const DetailProduct = (props) => {
   const [size, setSize] = useState('')
   const [counter, setCounter] = useState(1)
   const [alert, setAlart] = useState('')
+  const [alertColor, setAlartColor] = useState('')
   const [showAlart, setShowAlart] = useState(false)
 
   const handlePlus = () => {
@@ -39,15 +40,13 @@ const DetailProduct = (props) => {
 
     if (data.variant === '' && data.size === '') {
       setAlart('⚠️ please select variant or size product')
-      console.log(alert)
     } else if (data.variant === '') {
       setAlart('⚠️ please select variant product')
-      console.log('⚠️ please select variant product')
     } else if (data.size === '') {
       setAlart('⚠️ please select size product')
-      console.log('⚠️ please select size product')
     } else {
       setAlart('✅ your product succesfully added')
+      setAlartColor('success')
       props.handleAddToChart(data)
     }
 
@@ -56,7 +55,6 @@ const DetailProduct = (props) => {
       setShowAlart(false)
     }, 5000)
   }
-  console.log(showAlart)
 
   return (
     <section className="py-8 md:py-10 md:mt-5 bg-slate-100 ">
@@ -64,7 +62,9 @@ const DetailProduct = (props) => {
         <p
           className={`${
             showAlart === true ? 'block' : 'hidden'
-          } mx-auto w-96 rounded-lg py-2 ease-in-out translate-y-8 md:translate-y-0 shadow-lg font-semibold bg-yellow-200`}
+          } mx-auto w-96 rounded-lg py-2 ease-in-out translate-y-8 md:translate-y-0 shadow-lg font-semibold ${
+            alertColor === 'success' ? 'bg-green-200' : 'bg-yellow-200'
+          } `}
         >
           {alert}
         </p>
