@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
 import ActionType from '../redux/globalActionType'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const DetailProduct = (props) => {
   const [currentIndexImg, setCurrentIndexImg] = useState()
   const [variant, setVariant] = useState('')
   const [size, setSize] = useState('')
   const [counter, setCounter] = useState(1)
+  const [alert, setAlart] = useState('')
 
   const handlePlus = () => {
     setCounter(counter + 1)
@@ -15,6 +16,15 @@ const DetailProduct = (props) => {
   const handleMinus = () => {
     counter > 1 ? setCounter(counter - 1) : setCounter(1)
   }
+
+  useEffect(() => {
+    if (props.showProducts[0].variant.length === 0) {
+      setVariant('No Variant')
+    }
+    if (props.showProducts[0].size.length === 0) {
+      setSize('Unisex')
+    }
+  }, [props.showProducts])
 
   const setAddToChartData = (name, img, price) => {
     const data = {
@@ -25,7 +35,22 @@ const DetailProduct = (props) => {
       variant: variant,
       size: size,
     }
-    props.handleAddToChart(data)
+
+    console.log(variant)
+    if (data.variant === '' && data.size === '') {
+      setAlart('⚠️ please select variant or size product')
+      console.log(alert)
+    } else if (data.variant === '') {
+      setAlart('⚠️ please select variant product')
+      console.log('⚠️ please select variant product')
+    } else if (data.size === '') {
+      setAlart('⚠️ please select size product')
+      console.log('⚠️ please select size product')
+    } else {
+      setAlart('✅ your product succesfully added')
+      console.log('✅ your product succesfully added')
+      props.handleAddToChart(data)
+    }
   }
 
   return (
@@ -95,8 +120,8 @@ const DetailProduct = (props) => {
                               }`}
                               key={index}
                               onClick={() => {
-                                setCurrentIndexImg(item.image_path)
                                 setVariant(item.color)
+                                setCurrentIndexImg(item.image_path)
                               }}
                             >
                               {item.color}
@@ -158,7 +183,6 @@ const DetailProduct = (props) => {
                   <button
                     className="w-1/2 py-2 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold"
                     onClick={() => {
-                      // props.handleAddToChart(props.showProducts[0])
                       setAddToChartData(
                         props.showProducts[0].name,
                         props.showProducts[0].image,

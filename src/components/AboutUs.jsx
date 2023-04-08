@@ -1,6 +1,5 @@
 import banner from '../assets/0f4f14bc-cd35-4f74-9358-d91dacfe7568.jpg'
 const AboutUs = () => {
-  console.log('berhasil')
   return (
     <div className="container mx-auto px-5 md:px-0 py-20">
       <div className="flex flex-col md:items-center">
